@@ -116,6 +116,12 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
+        /*
+        *
+        *
+        *
+        */
+        
     </style>
 </head>
 <body>
@@ -190,9 +196,14 @@ Digita 'help' per i comandi disponibili.</div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
     <script>
+        //
+        //
+        //  const translations
+        //
+        //
         const translations = {
             it: {
                 welcome: `Benvenuto nel mio portfolio terminale.
@@ -273,6 +284,11 @@ Previously, I studied [Your Education] at [Your University].`,
                 commandNotFound: "Command not found: {0}. Type 'help' for available commands."
             }
         };
+        //
+        //
+        //  END const translations
+        //
+        //
 
         let currentLang = 'it';
         const terminal = document.getElementById('terminal');
@@ -333,7 +349,11 @@ Previously, I studied [Your Education] at [Your University].`,
             this.textContent = currentLang === 'it' ? 'English' : 'Italiano';
             updateContent();
         });
-
+        //
+        //
+        //  function updateContent()
+        //
+        //
         function updateContent() {
             // Update terminal welcome message
             terminal.firstElementChild.textContent = translations[currentLang].welcome;
@@ -461,7 +481,13 @@ Previously, I studied [Your Education] at [Your University].`,
             viewToggle.textContent = document.body.classList.contains('normal-view') 
                 ? translations[currentLang].viewToggle 
                 : (currentLang === 'it' ? 'Vista Terminale' : 'Terminal View');
-        }
+        } 
+        //
+        //
+        // END function updateContent()
+        //
+        //
+        //
 
         document.addEventListener('click', function() {
             if (!document.body.classList.contains('normal-view')) {
