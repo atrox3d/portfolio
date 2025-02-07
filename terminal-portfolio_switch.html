@@ -295,8 +295,9 @@ Previously, I studied [Your Education] at [Your University].`,
         viewToggle.addEventListener('click', function() {
             document.body.classList.toggle('normal-view');
             this.textContent = document.body.classList.contains('normal-view') 
-                ? translations[currentLang].viewToggle 
-                : (currentLang === 'it' ? 'Vista Terminale' : 'Terminal View');
+                // ? translations[currentLang].viewToggle 
+                ? (currentLang === 'it' ? 'Vista Terminale' : 'Terminal View')
+                : (currentLang === 'it' ? 'Vista Normale' : 'Normal View');
         });
 
         langToggle.addEventListener('click', function() {
