@@ -1,65 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal Portfolio</title>
+    <title>Portfolio</title>
     <style>
         body {
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.terminal-mode {
             background-color: #1a1a1a;
             color: #00ff00;
             font-family: monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            transition: all 0.3s ease;
         }
 
-        body.normal-mode {
+        body.normal-view {
             background-color: #ffffff;
             color: #333333;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
-        #view-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: inherit;
-            z-index: 1000;
-            transition: all 0.3s;
-        }
-
-        .terminal-mode #view-toggle {
-            background: #00ff00;
-            color: #1a1a1a;
-        }
-
-        .normal-mode #view-toggle {
-            background: #1a1a1a;
-            color: #ffffff;
-        }
-
-        #view-toggle:hover {
-            opacity: 0.9;
-        }
-
-        /* Terminal View Styles */
         #terminal {
             max-width: 800px;
             margin: 0 auto;
-            display: none;
-        }
-
-        .terminal-mode #terminal {
-            display: block;
         }
 
         .prompt {
@@ -95,182 +59,173 @@
             color: #ffffff;
         }
 
+        .normal-view .output {
+            color: #333333;
+        }
+
         .error {
             color: #ff0000;
         }
 
-        /* Normal View Styles */
-        #normal-view {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            display: none;
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
         }
 
-        .normal-mode #normal-view {
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: #333;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #555;
+        }
+
+        .normal-content {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .normal-view .normal-content {
             display: block;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        .normal-view #terminal {
+            display: none;
         }
 
         .project-card {
-            border: 1px solid #ddd;
+            background: #f5f5f5;
             border-radius: 8px;
             padding: 20px;
-            transition: transform 0.2s;
+            margin-bottom: 20px;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background: #f0f0f0;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.9em;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .contact-info a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
     </style>
 </head>
-<body class="terminal-mode">
-    <button id="view-toggle">Switch to Normal View</button>
+<body>
+    <div class="controls">
+        <button class="btn" id="viewToggle">Vista Normale</button>
+        <button class="btn" id="langToggle">English</button>
+    </div>
 
-    <!-- Terminal View -->
     <div id="terminal">
-        <div class="output">Welcome to my portfolio terminal.
-Type 'help' for available commands.</div>
+        <div class="output">Benvenuto nel mio portfolio terminale.
+Digita 'help' per i comandi disponibili.</div>
         <div class="prompt">
             <input type="text" id="input-line" autofocus>
         </div>
     </div>
 
-    <!-- Normal View -->
-    <div id="normal-view">
-        <div class="header">
-            <h1>[Your Name]</h1>
-            <p>Software Developer</p>
-        </div>
+    <div class="normal-content">
+        <h1>Il Mio Portfolio</h1>
+        <section id="about">
+            <h2>Chi Sono</h2>
+            <p>Sono [Il Tuo Nome], uno sviluppatore software appassionato di creare soluzioni eleganti per problemi complessi.</p>
+        </section>
 
-        <div class="section">
-            <h2>About Me</h2>
-            <p>I'm a software developer passionate about creating elegant solutions to complex problems. Currently working as [Your Position] at [Your Company]. Previously, I studied [Your Education] at [Your University].</p>
-        </div>
+        <section id="skills">
+            <h2>Competenze Tecniche</h2>
+            <p>• Linguaggi: JavaScript, Python, Java, SQL</p>
+            <p>• Frontend: React, Vue.js, HTML5, CSS3</p>
+            <p>• Backend: Node.js, Express, Django</p>
+            <p>• Strumenti: Git, Docker, AWS</p>
+        </section>
 
-        <div class="section">
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Vue.js</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Express</span>
-                <span class="skill-tag">Django</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">AWS</span>
+        <section id="projects">
+            <h2>Progetti</h2>
+            <div class="project-card">
+                <h3>Nome Progetto</h3>
+                <p>Descrizione: Breve descrizione del progetto</p>
+                <p>Stack Tecnologico: React, Node.js, MongoDB</p>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Project Name</h3>
-                    <p>Brief project description</p>
-                    <p><strong>Tech Stack:</strong> React, Node.js, MongoDB</p>
-                    <a href="https://github.com/yourusername/project1">View on GitHub</a>
-                </div>
-                <div class="project-card">
-                    <h3>Another Project</h3>
-                    <p>Another project description</p>
-                    <p><strong>Tech Stack:</strong> Python, Django, PostgreSQL</p>
-                    <a href="https://github.com/yourusername/project2">View on GitHub</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Contact</h2>
-            <div class="contact-info">
-                <a href="mailto:your.email@example.com">Email</a>
-                <a href="https://github.com/yourusername">GitHub</a>
-                <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
-                <a href="https://twitter.com/yourusername">Twitter</a>
-            </div>
-        </div>
+        <section id="contact">
+            <h2>Contatti</h2>
+            <p>Email: your.email@example.com</p>
+            <p>GitHub: github.com/yourusername</p>
+            <p>LinkedIn: linkedin.com/in/yourusername</p>
+        </section>
     </div>
 
     <script>
-        const commands = {
-            help: `Available commands:
+        const translations = {
+            it: {
+                welcome: `Benvenuto nel mio portfolio terminale.
+Digita 'help' per i comandi disponibili.`,
+                help: `Comandi disponibili:
+- about: Visualizza informazioni su di me
+- skills: Elenca le mie competenze tecniche
+- projects: Mostra i miei progetti
+- contact: Visualizza informazioni di contatto
+- clear: Pulisci il terminale
+- help: Mostra questo messaggio di aiuto`,
+                about: `Ciao, sono [Il Tuo Nome]!
+Sono uno sviluppatore software appassionato di creare soluzioni eleganti per problemi complessi.
+Attualmente lavoro come [La Tua Posizione] presso [La Tua Azienda].
+In precedenza, ho studiato [I Tuoi Studi] presso [La Tua Università].`,
+                skills: `Competenze Tecniche:
+• Linguaggi: JavaScript, Python, Java, SQL
+• Frontend: React, Vue.js, HTML5, CSS3
+• Backend: Node.js, Express, Django
+• Strumenti: Git, Docker, AWS
+• Altro: Metodologie Agili, Sviluppo guidato dai test`,
+                projects: `Progetti in Evidenza:
+
+1. Nome Progetto
+   - Descrizione: Breve descrizione del progetto
+   - Stack Tecnologico: React, Node.js, MongoDB
+   - GitHub: github.com/yourusername/project1
+
+2. Altro Progetto
+   - Descrizione: Altra descrizione del progetto
+   - Stack Tecnologico: Python, Django, PostgreSQL
+   - GitHub: github.com/yourusername/project2`,
+                contact: `Contattami:
+• Email: your.email@example.com
+• GitHub: github.com/yourusername
+• LinkedIn: linkedin.com/in/yourusername
+• Twitter: @yourusername`,
+                viewToggle: "Vista Normale",
+                commandNotFound: "Comando non trovato: {0}. Digita 'help' per i comandi disponibili."
+            },
+            en: {
+                welcome: `Welcome to my portfolio terminal.
+Type 'help' for available commands.`,
+                help: `Available commands:
 - about: Display information about me
 - skills: List my technical skills
 - projects: Show my projects
 - contact: Display contact information
 - clear: Clear the terminal
 - help: Show this help message`,
-
-            about: `Hi, I'm [Your Name]!
+                about: `Hi, I'm [Your Name]!
 I'm a software developer passionate about creating elegant solutions to complex problems.
 Currently working as [Your Position] at [Your Company].
 Previously, I studied [Your Education] at [Your University].`,
-
-            skills: `Technical Skills:
+                skills: `Technical Skills:
 • Languages: JavaScript, Python, Java, SQL
 • Frontend: React, Vue.js, HTML5, CSS3
 • Backend: Node.js, Express, Django
 • Tools: Git, Docker, AWS
 • Other: Agile methodologies, Test-driven development`,
-
-            projects: `Notable Projects:
+                projects: `Notable Projects:
 
 1. Project Name
    - Description: Brief project description
@@ -281,19 +236,21 @@ Previously, I studied [Your Education] at [Your University].`,
    - Description: Another project description
    - Tech Stack: Python, Django, PostgreSQL
    - GitHub: github.com/yourusername/project2`,
-
-            contact: `Get in touch:
+                contact: `Get in touch:
 • Email: your.email@example.com
 • GitHub: github.com/yourusername
 • LinkedIn: linkedin.com/in/yourusername
 • Twitter: @yourusername`,
-
-            clear: null
+                viewToggle: "Normal View",
+                commandNotFound: "Command not found: {0}. Type 'help' for available commands."
+            }
         };
 
+        let currentLang = 'it';
         const terminal = document.getElementById('terminal');
         const input = document.getElementById('input-line');
-        const viewToggle = document.getElementById('view-toggle');
+        const viewToggle = document.getElementById('viewToggle');
+        const langToggle = document.getElementById('langToggle');
 
         function createOutputElement(content, isError = false) {
             const output = document.createElement('div');
@@ -312,11 +269,11 @@ Previously, I studied [Your Education] at [Your University].`,
                 return;
             }
 
-            if (cleanCmd in commands) {
-                terminal.insertBefore(createOutputElement(commands[cleanCmd]), terminal.lastElementChild);
+            if (cleanCmd in translations[currentLang]) {
+                terminal.insertBefore(createOutputElement(translations[currentLang][cleanCmd]), terminal.lastElementChild);
             } else {
                 terminal.insertBefore(
-                    createOutputElement(`Command not found: ${cmd}. Type 'help' for available commands.`, true),
+                    createOutputElement(translations[currentLang].commandNotFound.replace('{0}', cmd), true),
                     terminal.lastElementChild
                 );
             }
@@ -325,30 +282,106 @@ Previously, I studied [Your Education] at [Your University].`,
         input.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 const command = this.value;
-                
                 const cmdLine = document.createElement('div');
                 cmdLine.className = 'prompt';
                 cmdLine.textContent = command;
-                
                 terminal.insertBefore(cmdLine, terminal.lastElementChild);
                 processCommand(command);
-                
                 this.value = '';
                 window.scrollTo(0, document.body.scrollHeight);
             }
         });
 
-        document.addEventListener('click', function() {
-            if (document.body.classList.contains('terminal-mode')) {
-                input.focus();
-            }
+        viewToggle.addEventListener('click', function() {
+            document.body.classList.toggle('normal-view');
+            this.textContent = document.body.classList.contains('normal-view') 
+                ? translations[currentLang].viewToggle 
+                : (currentLang === 'it' ? 'Vista Terminale' : 'Terminal View');
         });
 
-        viewToggle.addEventListener('click', function() {
-            const isTerminalMode = document.body.classList.contains('terminal-mode');
-            document.body.classList.toggle('terminal-mode');
-            document.body.classList.toggle('normal-mode');
-            this.textContent = isTerminalMode ? 'Switch to Terminal View' : 'Switch to Normal View';
+        langToggle.addEventListener('click', function() {
+            currentLang = currentLang === 'it' ? 'en' : 'it';
+            this.textContent = currentLang === 'it' ? 'English' : 'Italiano';
+            updateContent();
+        });
+
+        function updateContent() {
+            // Update terminal welcome message
+            terminal.firstElementChild.textContent = translations[currentLang].welcome;
+            
+            // Update normal view content based on language
+            document.querySelectorAll('.normal-content')[0].innerHTML = currentLang === 'it' ? `
+                <h1>Il Mio Portfolio</h1>
+                <section id="about">
+                    <h2>Chi Sono</h2>
+                    <p>Sono [Il Tuo Nome], uno sviluppatore software appassionato di creare soluzioni eleganti per problemi complessi.</p>
+                </section>
+
+                <section id="skills">
+                    <h2>Competenze Tecniche</h2>
+                    <p>• Linguaggi: JavaScript, Python, Java, SQL</p>
+                    <p>• Frontend: React, Vue.js, HTML5, CSS3</p>
+                    <p>• Backend: Node.js, Express, Django</p>
+                    <p>• Strumenti: Git, Docker, AWS</p>
+                </section>
+
+                <section id="projects">
+                    <h2>Progetti</h2>
+                    <div class="project-card">
+                        <h3>Nome Progetto</h3>
+                        <p>Descrizione: Breve descrizione del progetto</p>
+                        <p>Stack Tecnologico: React, Node.js, MongoDB</p>
+                    </div>
+                </section>
+
+                <section id="contact">
+                    <h2>Contatti</h2>
+                    <p>Email: your.email@example.com</p>
+                    <p>GitHub: github.com/yourusername</p>
+                    <p>LinkedIn: linkedin.com/in/yourusername</p>
+                </section>
+            ` : `
+                <h1>My Portfolio</h1>
+                <section id="about">
+                    <h2>About Me</h2>
+                    <p>I'm [Your Name], a software developer passionate about creating elegant solutions to complex problems.</p>
+                </section>
+
+                <section id="skills">
+                    <h2>Technical Skills</h2>
+                    <p>• Languages: JavaScript, Python, Java, SQL</p>
+                    <p>• Frontend: React, Vue.js, HTML5, CSS3</p>
+                    <p>• Backend: Node.js, Express, Django</p>
+                    <p>• Tools: Git, Docker, AWS</p>
+                </section>
+
+                <section id="projects">
+                    <h2>Projects</h2>
+                    <div class="project-card">
+                        <h3>Project Name</h3>
+                        <p>Description: Brief project description</p>
+                        <p>Tech Stack: React, Node.js, MongoDB</p>
+                    </div>
+                </section>
+
+                <section id="contact">
+                    <h2>Contact</h2>
+                    <p>Email: your.email@example.com</p>
+                    <p>GitHub: github.com/yourusername</p>
+                    <p>LinkedIn: linkedin.com/in/yourusername</p>
+                </section>
+            `;
+
+            // Update view toggle button text
+            viewToggle.textContent = document.body.classList.contains('normal-view') 
+                ? translations[currentLang].viewToggle 
+                : (currentLang === 'it' ? 'Vista Terminale' : 'Terminal View');
+        }
+
+        document.addEventListener('click', function() {
+            if (!document.body.classList.contains('normal-view')) {
+                input.focus();
+            }
         });
     </script>
 </body>
