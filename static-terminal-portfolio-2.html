@@ -8,7 +8,7 @@
         /* Terminal Style */
         .terminal-mode {
             background-color: #000;
-            color: #0f0;
+            color: rgb(237, 239, 237);
             font-family: monospace;
             padding: 20px;
             line-height: 1.6;
@@ -211,7 +211,10 @@
                     }
                 },
                 buttons: {
-                    mode: "Modalità Normale",
+                    mode: {
+                            terminal: "Modalità Normale",
+                            normal:   "Modalità Terminale"
+                        },
                     lang: "English"
                 }
             },
@@ -250,11 +253,11 @@
                         title: "Contacts"
                     }
                 },
-                buttons: {
-                    mode: "Normal Mode",
-                    lang: "Italiano"
-                }
-            }
+                mode: {
+                    terminal: "Normal Mode",
+                    normal:   "Terminal Mode"
+                },
+    }
         };
 
         let currentLang = 'it';
@@ -275,7 +278,9 @@
         }
 
         function updateButtonText() {
-            document.getElementById('modeToggle').textContent = content[currentLang].buttons.mode;
+            document.getElementById('modeToggle').textContent = isTerminalMode 
+            ? content[currentLang].buttons.mode.terminal
+            : content[currentLang].buttons.mode.normal;
             document.getElementById('langToggle').textContent = content[currentLang].buttons.lang;
         }
 
