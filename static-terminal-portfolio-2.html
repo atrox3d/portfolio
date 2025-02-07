@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Portfolio</title>
+    <style>
+        /* Terminal Style */
+        .terminal-mode {
+            background-color: #000;
+            color: #0f0;
+            font-family: monospace;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Normal Style */
+        .normal-mode {
+            background-color: #fff;
+            color: #333;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        button {
+            padding: 8px 16px;
+            margin: 0 5px;
+            cursor: pointer;
+            background: #444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .terminal-mode button {
+            background: #0f0;
+            color: #000;
+        }
+
+        /* Terminal Cursor Effect */
+        .cursor {
+            animation: blink 1s infinite;
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background: #0f0;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Terminal Content Styling */
+        .prompt {
+            color: #0f0;
+            margin-right: 8px;
+        }
+
+        /* Normal Mode Styling */
+        .normal-mode h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+
+        .normal-mode section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="terminal-mode">
+    <div class="controls">
+        <button onclick="toggleMode()" id="modeToggle">Modalità Normale</button>
+        <button onclick="toggleLanguage()" id="langToggle">English</button>
+    </div>
+
+    <!-- Terminal Mode Content -->
+    <div id="terminal-content">
+        <div class="command-line">
+            <span class="prompt">visitor@portfolio:~$</span> whoami
+        </div>
+        <div class="output">
+            <p>Mario Rossi</p>
+            <p>Sviluppatore Full Stack</p>
+        </div>
+
+        <div class="command-line">
+            <span class="prompt">visitor@portfolio:~$</span> cat skills.txt
+        </div>
+        <div class="output">
+            <p>- HTML, CSS, JavaScript</p>
+            <p>- React, Node.js</p>
+            <p>- Python, Java</p>
+            <p>- Git, Docker</p>
+        </div>
+
+        <div class="command-line">
+            <span class="prompt">visitor@portfolio:~$</span> cat progetti.txt
+        </div>
+        <div class="output">
+            <p>1. E-commerce Platform</p>
+            <p>   - Stack: React, Node.js, MongoDB</p>
+            <p>   - Repository: github.com/mariorossi/ecommerce</p>
+            <p>2. Weather App</p>
+            <p>   - Stack: Vue.js, Express</p>
+            <p>   - Repository: github.com/mariorossi/weather</p>
+        </div>
+
+        <div class="command-line">
+            <span class="prompt">visitor@portfolio:~$</span> cat contatti.txt
+        </div>
+        <div class="output">
+            <p>Email: mario.rossi@example.com</p>
+            <p>GitHub: github.com/mariorossi</p>
+            <p>LinkedIn: linkedin.com/in/mariorossi</p>
+        </div>
+        <div class="command-line">
+            <span class="prompt">visitor@portfolio:~$</span><span class="cursor"></span>
+        </div>
+    </div>
+
+    <!-- Normal Mode Content -->
+    <div id="normal-content" class="hidden">
+        <h1>Mario Rossi</h1>
+        <section>
+            <h2>Chi Sono</h2>
+            <p>Sviluppatore Full Stack con passione per tecnologie web moderne e open source.</p>
+        </section>
+
+        <section>
+            <h2>Competenze</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>React, Node.js</li>
+                <li>Python, Java</li>
+                <li>Git, Docker</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Progetti</h2>
+            <h3>E-commerce Platform</h3>
+            <p>Stack: React, Node.js, MongoDB</p>
+            <p>Repository: github.com/mariorossi/ecommerce</p>
+
+            <h3>Weather App</h3>
+            <p>Stack: Vue.js, Express</p>
+            <p>Repository: github.com/mariorossi/weather</p>
+        </section>
+
+        <section>
+            <h2>Contatti</h2>
+            <p>Email: mario.rossi@example.com</p>
+            <p>GitHub: github.com/mariorossi</p>
+            <p>LinkedIn: linkedin.com/in/mariorossi</p>
+        </section>
+    </div>
+
+    <script>
+        const content = {
+            it: {
+                terminal: {
+                    whoami: ["Mario Rossi", "Sviluppatore Full Stack"],
+                    skills: ["- HTML, CSS, JavaScript", "- React, Node.js", "- Python, Java", "- Git, Docker"],
+                    projects: [
+                        "1. E-commerce Platform",
+                        "   - Stack: React, Node.js, MongoDB",
+                        "   - Repository: github.com/mariorossi/ecommerce",
+                        "2. Weather App",
+                        "   - Stack: Vue.js, Express",
+                        "   - Repository: github.com/mariorossi/weather"
+                    ],
+                    contacts: [
+                        "Email: mario.rossi@example.com",
+                        "GitHub: github.com/mariorossi",
+                        "LinkedIn: linkedin.com/in/mariorossi"
+                    ]
+                },
+                normal: {
+                    title: "Mario Rossi",
+                    about: {
+                        title: "Chi Sono",
+                        content: "Sviluppatore Full Stack con passione per tecnologie web moderne e open source."
+                    },
+                    skills: {
+                        title: "Competenze",
+                        items: ["HTML, CSS, JavaScript", "React, Node.js", "Python, Java", "Git, Docker"]
+                    },
+                    projects: {
+                        title: "Progetti"
+                    },
+                    contacts: {
+                        title: "Contatti"
+                    }
+                },
+                buttons: {
+                    mode: "Modalità Normale",
+                    lang: "English"
+                }
+            },
+            en: {
+                terminal: {
+                    whoami: ["Mario Rossi", "Full Stack Developer"],
+                    skills: ["- HTML, CSS, JavaScript", "- React, Node.js", "- Python, Java", "- Git, Docker"],
+                    projects: [
+                        "1. E-commerce Platform",
+                        "   - Stack: React, Node.js, MongoDB",
+                        "   - Repository: github.com/mariorossi/ecommerce",
+                        "2. Weather App",
+                        "   - Stack: Vue.js, Express",
+                        "   - Repository: github.com/mariorossi/weather"
+                    ],
+                    contacts: [
+                        "Email: mario.rossi@example.com",
+                        "GitHub: github.com/mariorossi",
+                        "LinkedIn: linkedin.com/in/mariorossi"
+                    ]
+                },
+                normal: {
+                    title: "Mario Rossi",
+                    about: {
+                        title: "About Me",
+                        content: "Full Stack Developer passionate about modern web technologies and open source."
+                    },
+                    skills: {
+                        title: "Skills",
+                        items: ["HTML, CSS, JavaScript", "React, Node.js", "Python, Java", "Git, Docker"]
+                    },
+                    projects: {
+                        title: "Projects"
+                    },
+                    contacts: {
+                        title: "Contacts"
+                    }
+                },
+                buttons: {
+                    mode: "Normal Mode",
+                    lang: "Italiano"
+                }
+            }
+        };
+
+        let currentLang = 'it';
+        let isTerminalMode = true;
+
+        function toggleMode() {
+            isTerminalMode = !isTerminalMode;
+            document.body.className = isTerminalMode ? 'terminal-mode' : 'normal-mode';
+            document.getElementById('terminal-content').className = isTerminalMode ? '' : 'hidden';
+            document.getElementById('normal-content').className = isTerminalMode ? 'hidden' : '';
+            updateButtonText();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'it' ? 'en' : 'it';
+            updateContent();
+            updateButtonText();
+        }
+
+        function updateButtonText() {
+            document.getElementById('modeToggle').textContent = content[currentLang].buttons.mode;
+            document.getElementById('langToggle').textContent = content[currentLang].buttons.lang;
+        }
+
+        function updateContent() {
+            // Update terminal content
+            const terminalContent = document.getElementById('terminal-content');
+            // ... (Update terminal content based on language)
+
+            // Update normal content
+            const normalContent = document.getElementById('normal-content');
+            normalContent.querySelector('h1').textContent = content[currentLang].normal.title;
+            const sections = normalContent.querySelectorAll('section');
+            
+            // About section
+            sections[0].querySelector('h2').textContent = content[currentLang].normal.about.title;
+            sections[0].querySelector('p').textContent = content[currentLang].normal.about.content;
+            
+            // Skills section
+            sections[1].querySelector('h2').textContent = content[currentLang].normal.skills.title;
+            
+            // Projects section
+            sections[2].querySelector('h2').textContent = content[currentLang].normal.projects.title;
+            
+            // Contacts section
+            sections[3].querySelector('h2').textContent = content[currentLang].normal.contacts.title;
+        }
+
+        // Initial content update
+        updateContent();
+    </script>
+</body>
+</html>

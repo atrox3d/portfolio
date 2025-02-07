@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Portfolio</title>
+    <style>
+        :root {
+            --terminal-bg: #2E3440;
+            --terminal-text: #D8DEE9;
+            --terminal-prompt: #A3BE8C;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .normal-mode {
+            background-color: white;
+            color: black;
+        }
+
+        #terminal {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: var(--terminal-prompt);
+            border: none;
+            color: var(--terminal-bg);
+            padding: 8px 16px;
+            cursor: pointer;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        .prompt {
+            color: var(--terminal-prompt);
+            margin-bottom: 10px;
+        }
+
+        .command {
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        a {
+            color: #88C0D0;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button id="themeToggle">Modalità Normale</button>
+        <button id="langToggle">English</button>
+    </div>
+
+    <div id="terminal">
+        <div class="command">
+            <div class="prompt">visitor@portfolio:~$ whoami</div>
+            <div class="section" id="about">
+                <span id="about-name">Nome: Mario Rossi</span><br>
+                <span id="about-role">Ruolo: Sviluppatore Full Stack</span><br>
+                <span id="about-location">Località: Roma, Italia</span>
+            </div>
+        </div>
+
+        <div class="command">
+            <div class="prompt">visitor@portfolio:~$ cat skills.txt</div>
+            <div class="section" id="skills">
+                <span id="skills-title">Competenze:</span><br>
+                • JavaScript, TypeScript, React<br>
+                • Node.js, Express, MongoDB<br>
+                • HTML5, CSS3, SASS<br>
+                • Git, Docker, AWS
+            </div>
+        </div>
+
+        <div class="command">
+            <div class="prompt">visitor@portfolio:~$ ls progetti/</div>
+            <div class="section" id="projects">
+                <span id="projects-title">Progetti:</span><br>
+                <a href="#" id="project1">➜ E-commerce Platform</a><br>
+                <span id="project1-desc">• Piattaforma e-commerce full-stack con React e Node.js</span><br><br>
+                <a href="#" id="project2">➜ Task Manager App</a><br>
+                <span id="project2-desc">• Applicazione di gestione attività con React Native</span>
+            </div>
+        </div>
+
+        <div class="command">
+            <div class="prompt">visitor@portfolio:~$ cat contatti.txt</div>
+            <div class="section" id="contact">
+                <span id="contact-title">Contatti:</span><br>
+                Email: mario.rossi@example.com<br>
+                GitHub: <a href="https://github.com/mariorossi">github.com/mariorossi</a><br>
+                LinkedIn: <a href="https://linkedin.com/in/mariorossi">linkedin.com/in/mariorossi</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            it: {
+                themeBtn: "Modalità Normale",
+                langBtn: "English",
+                aboutName: "Nome: Mario Rossi",
+                aboutRole: "Ruolo: Sviluppatore Full Stack",
+                aboutLocation: "Località: Roma, Italia",
+                skillsTitle: "Competenze:",
+                projectsTitle: "Progetti:",
+                project1Desc: "• Piattaforma e-commerce full-stack con React e Node.js",
+                project2Desc: "• Applicazione di gestione attività con React Native",
+                contactTitle: "Contatti:"
+            },
+            en: {
+                themeBtn: "Normal Mode",
+                langBtn: "Italiano",
+                aboutName: "Name: Mario Rossi",
+                aboutRole: "Role: Full Stack Developer",
+                aboutLocation: "Location: Rome, Italy",
+                skillsTitle: "Skills:",
+                projectsTitle: "Projects:",
+                project1Desc: "• Full-stack e-commerce platform with React and Node.js",
+                project2Desc: "• Task management application with React Native",
+                contactTitle: "Contact:"
+            }
+        };
+
+        let currentLang = 'it';
+        const themeToggle = document.getElementById('themeToggle');
+        const langToggle = document.getElementById('langToggle');
+
+        function updateContent(lang) {
+            document.getElementById('themeToggle').textContent = translations[lang].themeBtn;
+            document.getElementById('langToggle').textContent = translations[lang].langBtn;
+            document.getElementById('about-name').textContent = translations[lang].aboutName;
+            document.getElementById('about-role').textContent = translations[lang].aboutRole;
+            document.getElementById('about-location').textContent = translations[lang].aboutLocation;
+            document.getElementById('skills-title').textContent = translations[lang].skillsTitle;
+            document.getElementById('projects-title').textContent = translations[lang].projectsTitle;
+            document.getElementById('project1-desc').textContent = translations[lang].project1Desc;
+            document.getElementById('project2-desc').textContent = translations[lang].project2Desc;
+            document.getElementById('contact-title').textContent = translations[lang].contactTitle;
+            document.documentElement.lang = lang;
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('normal-mode');
+        });
+
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'it' ? 'en' : 'it';
+            updateContent(currentLang);
+        });
+    </script>
+</body>
+</html>
