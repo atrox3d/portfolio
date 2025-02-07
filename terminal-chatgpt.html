@@ -133,36 +133,64 @@ Digita 'help' per i comandi disponibili.</div>
     </div>
 
     <div class="normal-content">
-        <h1>Il Mio Portfolio</h1>
-        <section id="about">
-            <h2>Chi Sono</h2>
-            <p>Sono [Il Tuo Nome], uno sviluppatore software appassionato di creare soluzioni eleganti per problemi complessi.</p>
-        </section>
-
-        <section id="skills">
-            <h2>Competenze Tecniche</h2>
-            <p>• Linguaggi: JavaScript, Python, Java, SQL</p>
-            <p>• Frontend: React, Vue.js, HTML5, CSS3</p>
-            <p>• Backend: Node.js, Express, Django</p>
-            <p>• Strumenti: Git, Docker, AWS</p>
-        </section>
-
-        <section id="projects">
-            <h2>Progetti</h2>
-            <div class="project-card">
-                <h3>Nome Progetto</h3>
-                <p>Descrizione: Breve descrizione del progetto</p>
-                <p>Stack Tecnologico: React, Node.js, MongoDB</p>
+        <div id="normal-view">
+            <div class="header">
+                <h1>[Your Name]</h1>
+                <p>Software Developer</p>
             </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contatti</h2>
-            <p>Email: your.email@example.com</p>
-            <p>GitHub: github.com/yourusername</p>
-            <p>LinkedIn: linkedin.com/in/yourusername</p>
-        </section>
-    </div>
+    
+            <div class="section">
+                <h2>About Me</h2>
+                <p>I'm a software developer passionate about creating elegant solutions to complex problems. Currently working as [Your Position] at [Your Company]. Previously, I studied [Your Education] at [Your University].</p>
+            </div>
+    
+            <div class="section">
+                <h2>Skills</h2>
+                <div class="skills-list">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Vue.js</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Express</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">AWS</span>
+                </div>
+            </div>
+    
+            <div class="section">
+                <h2>Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Project Name</h3>
+                        <p>Brief project description</p>
+                        <p><strong>Tech Stack:</strong> React, Node.js, MongoDB</p>
+                        <a href="https://github.com/yourusername/project1">View on GitHub</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Another Project</h3>
+                        <p>Another project description</p>
+                        <p><strong>Tech Stack:</strong> Python, Django, PostgreSQL</p>
+                        <a href="https://github.com/yourusername/project2">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="section">
+                <h2>Contact</h2>
+                <div class="contact-info">
+                    <a href="mailto:your.email@example.com">Email</a>
+                    <a href="https://github.com/yourusername">GitHub</a>
+                    <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
+                    <a href="https://twitter.com/yourusername">Twitter</a>
+                </div>
+            </div>
+        </div>
+        </div>
 
     <script>
         const translations = {
@@ -312,65 +340,121 @@ Previously, I studied [Your Education] at [Your University].`,
             
             // Update normal view content based on language
             document.querySelectorAll('.normal-content')[0].innerHTML = currentLang === 'it' ? `
-                <h1>Il Mio Portfolio</h1>
-                <section id="about">
-                    <h2>Chi Sono</h2>
-                    <p>Sono [Il Tuo Nome], uno sviluppatore software appassionato di creare soluzioni eleganti per problemi complessi.</p>
-                </section>
+    <div id="normal-view">
+        <div class="header">
+            <h1>[Your Name]</h1>
+            <p>Software Developer</p>
+        </div>
 
-                <section id="skills">
-                    <h2>Competenze Tecniche</h2>
-                    <p>• Linguaggi: JavaScript, Python, Java, SQL</p>
-                    <p>• Frontend: React, Vue.js, HTML5, CSS3</p>
-                    <p>• Backend: Node.js, Express, Django</p>
-                    <p>• Strumenti: Git, Docker, AWS</p>
-                </section>
+        <div class="section">
+            <h2>About Me</h2>
+            <p>I'm a software developer passionate about creating elegant solutions to complex problems. Currently working as [Your Position] at [Your Company]. Previously, I studied [Your Education] at [Your University].</p>
+        </div>
 
-                <section id="projects">
-                    <h2>Progetti</h2>
-                    <div class="project-card">
-                        <h3>Nome Progetto</h3>
-                        <p>Descrizione: Breve descrizione del progetto</p>
-                        <p>Stack Tecnologico: React, Node.js, MongoDB</p>
-                    </div>
-                </section>
+        <div class="section">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Vue.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Express</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">AWS</span>
+            </div>
+        </div>
 
-                <section id="contact">
-                    <h2>Contatti</h2>
-                    <p>Email: your.email@example.com</p>
-                    <p>GitHub: github.com/yourusername</p>
-                    <p>LinkedIn: linkedin.com/in/yourusername</p>
-                </section>
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Project Name</h3>
+                    <p>Brief project description</p>
+                    <p><strong>Tech Stack:</strong> React, Node.js, MongoDB</p>
+                    <a href="https://github.com/yourusername/project1">View on GitHub</a>
+                </div>
+                <div class="project-card">
+                    <h3>Another Project</h3>
+                    <p>Another project description</p>
+                    <p><strong>Tech Stack:</strong> Python, Django, PostgreSQL</p>
+                    <a href="https://github.com/yourusername/project2">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <a href="mailto:your.email@example.com">Email</a>
+                <a href="https://github.com/yourusername">GitHub</a>
+                <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
+                <a href="https://twitter.com/yourusername">Twitter</a>
+            </div>
+        </div>
+    </div>
             ` : `
-                <h1>My Portfolio</h1>
-                <section id="about">
-                    <h2>About Me</h2>
-                    <p>I'm [Your Name], a software developer passionate about creating elegant solutions to complex problems.</p>
-                </section>
+    <div id="normal-view">
+        <div class="header">
+            <h1>[Your Name]</h1>
+            <p>Software Developer</p>
+        </div>
 
-                <section id="skills">
-                    <h2>Technical Skills</h2>
-                    <p>• Languages: JavaScript, Python, Java, SQL</p>
-                    <p>• Frontend: React, Vue.js, HTML5, CSS3</p>
-                    <p>• Backend: Node.js, Express, Django</p>
-                    <p>• Tools: Git, Docker, AWS</p>
-                </section>
+        <div class="section">
+            <h2>About Me</h2>
+            <p>I'm a software developer passionate about creating elegant solutions to complex problems. Currently working as [Your Position] at [Your Company]. Previously, I studied [Your Education] at [Your University].</p>
+        </div>
 
-                <section id="projects">
-                    <h2>Projects</h2>
-                    <div class="project-card">
-                        <h3>Project Name</h3>
-                        <p>Description: Brief project description</p>
-                        <p>Tech Stack: React, Node.js, MongoDB</p>
-                    </div>
-                </section>
+        <div class="section">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Vue.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Express</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">AWS</span>
+            </div>
+        </div>
 
-                <section id="contact">
-                    <h2>Contact</h2>
-                    <p>Email: your.email@example.com</p>
-                    <p>GitHub: github.com/yourusername</p>
-                    <p>LinkedIn: linkedin.com/in/yourusername</p>
-                </section>
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Project Name</h3>
+                    <p>Brief project description</p>
+                    <p><strong>Tech Stack:</strong> React, Node.js, MongoDB</p>
+                    <a href="https://github.com/yourusername/project1">View on GitHub</a>
+                </div>
+                <div class="project-card">
+                    <h3>Another Project</h3>
+                    <p>Another project description</p>
+                    <p><strong>Tech Stack:</strong> Python, Django, PostgreSQL</p>
+                    <a href="https://github.com/yourusername/project2">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <a href="mailto:your.email@example.com">Email</a>
+                <a href="https://github.com/yourusername">GitHub</a>
+                <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
+                <a href="https://twitter.com/yourusername">Twitter</a>
+            </div>
+        </div>
+    </div>
             `;
 
             // Update view toggle button text
