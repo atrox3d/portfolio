@@ -1,0 +1,94 @@
+body {
+  font-family: monospace;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+#terminal {
+  background-color: #222;
+  border: 1px solid #555;
+  padding: 10px;
+  overflow: auto; /* for scrollable output */
+}
+
+#terminal-output {
+  margin-bottom: 10px;
+}
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  margin-right: 5px;
+  color: #0f0; /* Green prompt */
+}
+
+#terminal-input {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-family: monospace;
+  font-size: 1em;
+  width: 100%;
+  outline: none; /* Remove focus outline */
+}
+
+.controls {
+  margin-top: 10px;
+  text-align: center;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+#portfolio-content {
+    padding: 20px;
+    background-color: #333;
+}
+
+#portfolio-content h1, #portfolio-content h2 {
+    color: #fff;
+}
+
+#portfolio-content p {
+    color: #ccc;
+}
+
+#projects {
+    margin-top: 20px;
+}
+
+#project-list {
+    display: flex;
+    flex-direction: column;
+}
+
+#project-list div {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #555;
+}
