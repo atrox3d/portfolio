@@ -1,0 +1,22 @@
+{
+    "name": {
+        "it": "Nome Cognome",
+        "en": "First Last"
+    },
+    "help": {
+        "it": "Comandi disponibili: about, skills, projects",
+        "en": "Available commands: about, skills, projects"
+    },
+    "about": {
+        "it": "Ciao! Sono un sviluppatore con esperienza in...",
+        "en": "Hi! I am a developer with experience in..."
+    },
+    "skills": {
+        "it": "Le mie competenze includono: JavaScript, HTML, CSS...",
+        "en": "My skills include: JavaScript, HTML, CSS..."
+    },
+    "projects": {
+        "it": "Alcuni dei miei progetti includono...",
+        "en": "Some of my projects include..."
+    }
+}
