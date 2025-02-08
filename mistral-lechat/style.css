@@ -67,11 +67,21 @@ button:hover {
     caret-color: #ffffff;
 }
 
-#prompt {
+.prompt {
     user-select: none;
     margin-right: 5px;
+    color: #00ff00; /* Green prompt color */
+}
+
+.command {
+    color: #ffffff; /* White command color */
+}
+
+.prompt-line, .response-line {
+    margin-bottom: 5px;
 }
 
 #welcome-message {
+    color: #00ff00; /* Green welcome message color */
     margin-bottom: 20px;
 }

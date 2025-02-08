@@ -53,20 +53,36 @@ document.addEventListener('DOMContentLoaded', () => {
             default:
                 response = language === 'it' ? 'Comando non riconosciuto' : 'Command not recognized';
         }
-        output.innerHTML += `<p>${response}</p>`;
+        appendOutput(command, response);
         window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function appendOutput(command, response) {
+        const promptElement = document.createElement('div');
+        promptElement.classList.add('prompt-line');
+        promptElement.innerHTML = `<span class="prompt">user@portfolio:~$</span> <span class="command">${command}</span>`;
+
+        const responseElement = document.createElement('div');
+        responseElement.classList.add('response-line');
+        responseElement.textContent = response;
+
+        output.appendChild(promptElement);
+        output.appendChild(responseElement);
     }
 
     function displayWelcomeMessage() {
         if (welcomeMessage) {
-            welcomeMessage.textContent = language === 'it' ? data.welcome.it : data.welcome.en;
+            welcomeMessage.innerHTML = `<span class="prompt">${language === 'it' ? data.welcome.it : data.welcome.en}</span>`;
         }
     }
 
     function updatePortfolioView() {
         if (nameElement) nameElement.textContent = language === 'it' ? data.name.it : data.name.en;
         if (aboutElement) aboutElement.textContent = language === 'it' ? data.about.it : data.about.en;
-        if (skillsElement) skillsElement.textContent = language === 'it' ? data.skills.it : data.skills.en;
+        if (skillsElement) {
+            const skills = language === 'it' ? data.skills.it : data.skills.en;
+            skillsElement.innerHTML = skills.split(', ').map(skill => `<span class="skill">${skill}</span>`).join('');
+        }
         if (projectsElement) projectsElement.textContent = language === 'it' ? data.projects.it : data.projects.en;
     }
 
