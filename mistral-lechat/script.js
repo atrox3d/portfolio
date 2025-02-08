@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             data = jsonData;
             displayWelcomeMessage();
             updatePortfolioView();
+            updateButtonCaptions();
         });
 
     commandInput?.addEventListener('keydown', (event) => {
@@ -35,8 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     switchLanguageButton?.addEventListener('click', () => {
         language = language === 'it' ? 'en' : 'it';
-        switchLanguageButton.textContent = language === 'it' ? 'Switch to English' : 'Switch to Italian';
-        document.documentElement.lang = language;
+        updateButtonCaptions();
         displayWelcomeMessage();
         updatePortfolioView();
     });
@@ -68,5 +68,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (aboutElement) aboutElement.textContent = language === 'it' ? data.about.it : data.about.en;
         if (skillsElement) skillsElement.textContent = language === 'it' ? data.skills.it : data.skills.en;
         if (projectsElement) projectsElement.textContent = language === 'it' ? data.projects.it : data.projects.en;
+    }
+
+    function updateButtonCaptions() {
+        if (switchViewButton) {
+            switchViewButton.textContent = language === 'it' ?
+                (window.location.pathname.includes('index.html') ? 'Passa alla vista Portfolio' : 'Passa alla vista Terminale') :
+                (window.location.pathname.includes('index.html') ? 'Switch to Normal Portfolio' : 'Switch to Terminal View');
+        }
+        if (switchLanguageButton) {
+            switchLanguageButton.textContent = language === 'it' ? 'Cambia lingua in Inglese' : 'Switch to Italian';
+        }
     }
 });
