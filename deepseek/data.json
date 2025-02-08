@@ -1,0 +1,40 @@
+{
+    "it": {
+        "welcome": "Benvenuto nel terminale!<br>Digita 'help' per vedere i comandi disponibili",
+        "name": "Il Tuo Nome",
+        "bio": "Sviluppatore appassionato...",
+        "projects": [
+            {
+                "title": "Progetto 1",
+                "description": "Descrizione progetto 1"
+            }
+        ],
+        "commands": {
+            "help": "Comandi disponibili: about, projects, skills, contact",
+            "about": "Informazioni su di me...",
+            "projects": "Elenco progetti..."
+        },
+        "error": "Comando non riconosciuto. Digita 'help' per i comandi disponibili",
+        "terminalView": "Vista Normale",
+        "normalView": "Vista Terminale"
+    },
+    "en": {
+        "welcome": "Welcome to the terminal!<br>Type 'help' to see available commands",
+        "name": "Your Name",
+        "bio": "Passionate developer...",
+        "projects": [
+            {
+                "title": "Project 1",
+                "description": "Project 1 description"
+            }
+        ],
+        "commands": {
+            "help": "Available commands: about, projects, skills, contact",
+            "about": "About me...",
+            "projects": "List of projects..."
+        },
+        "error": "Command not found. Type 'help' for available commands",
+        "terminalView": "Normal View",
+        "normalView": "Terminal View"
+    }
+}

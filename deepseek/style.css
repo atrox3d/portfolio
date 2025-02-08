@@ -1,0 +1,65 @@
+body {
+    background-color: #1a1a1a;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 20px;
+}
+
+#terminal {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.controls {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+button {
+    background: #333;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.output {
+    margin-bottom: 10px;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    margin-right: 5px;
+}
+
+#commandInput {
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    flex-grow: 1;
+    outline: none;
+}
+
+#normalPortfolio {
+    color: #333;
+    background: white;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#normalPortfolio h1 {
+    color: #1a1a1a;
+}
