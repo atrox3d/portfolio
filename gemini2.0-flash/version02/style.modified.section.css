@@ -1,0 +1,12 @@
+.container {
+  width: 80%;
+  max-width: 800px;
+  padding: 20px;
+  /* Add margin to the top */
+  margin-top: 20px;
+}
+
+.controls {
+  margin-bottom: 10px; /* Add margin below the buttons */
+  text-align: center;
+}
