@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayWelcomeMessage() {
         if (welcomeMessage) {
-            welcomeMessage.innerHTML = `<span class="prompt">${language === 'it' ? data.welcome.it : data.welcome.en}</span>`;
+            welcomeMessage.textContent = language === 'it' ? data.welcome.it : data.welcome.en;
         }
     }
 
