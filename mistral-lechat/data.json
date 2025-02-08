@@ -3,6 +3,10 @@
         "it": "Nome Cognome",
         "en": "First Last"
     },
+    "welcome": {
+        "it": "Benvenuto! Comandi disponibili: help, about, skills, projects",
+        "en": "Welcome! Available commands: help, about, skills, projects"
+    },
     "help": {
         "it": "Comandi disponibili: about, skills, projects",
         "en": "Available commands: about, skills, projects"

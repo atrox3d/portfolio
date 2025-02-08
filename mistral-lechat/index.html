@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Terminal Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Normal Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 <body>
-    <div id="terminal">
-        <div id="output"></div>
-        <div id="input-container">
-            <span id="prompt">user@portfolio:~$</span>
-            <input type="text" id="command-input" autocomplete="off" autofocus>
-        </div>
+    <div id="buttons">
+        <button id="switch-view">Switch to Terminal View</button>
+        <button id="switch-language">Switch to English</button>
     </div>
-    <button id="switch-view">Switch to Normal Portfolio</button>
-    <button id="switch-language">Switch to English</button>
+    <div id="portfolio-content">
+        <h1 id="name"></h1>
+        <p id="about"></p>
+        <h2>Skills</h2>
+        <p id="skills"></p>
+        <h2>Projects</h2>
+        <p id="projects"></p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

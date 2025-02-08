@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const commandInput = document.getElementById('command-input');
     const output = document.getElementById('output');
+    const welcomeMessage = document.getElementById('welcome-message');
     const switchViewButton = document.getElementById('switch-view');
     const switchLanguageButton = document.getElementById('switch-language');
     const nameElement = document.getElementById('name');
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(jsonData => {
             data = jsonData;
+            displayWelcomeMessage();
             updatePortfolioView();
         });
 
@@ -35,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         language = language === 'it' ? 'en' : 'it';
         switchLanguageButton.textContent = language === 'it' ? 'Switch to English' : 'Switch to Italian';
         document.documentElement.lang = language;
+        displayWelcomeMessage();
         updatePortfolioView();
     });
 
@@ -42,22 +45,22 @@ document.addEventListener('DOMContentLoaded', () => {
         let response = '';
         switch (command) {
             case 'help':
-                response = language === 'it' ? data.help.it : data.help.en;
-                break;
             case 'about':
-                response = language === 'it' ? data.about.it : data.about.en;
-                break;
             case 'skills':
-                response = language === 'it' ? data.skills.it : data.skills.en;
-                break;
             case 'projects':
-                response = language === 'it' ? data.projects.it : data.projects.en;
+                response = data[command][language];
                 break;
             default:
                 response = language === 'it' ? 'Comando non riconosciuto' : 'Command not recognized';
         }
         output.innerHTML += `<p>${response}</p>`;
         window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function displayWelcomeMessage() {
+        if (welcomeMessage) {
+            welcomeMessage.textContent = language === 'it' ? data.welcome.it : data.welcome.en;
+        }
     }
 
     function updatePortfolioView() {

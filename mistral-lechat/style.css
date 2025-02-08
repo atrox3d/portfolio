@@ -7,8 +7,33 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100vh;
+}
+
+#buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: #333;
+    border-bottom: 1px solid #444;
+}
+
+button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #555;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #666;
 }
 
 #terminal {
@@ -18,34 +43,35 @@ body {
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+    font-size: 14px;
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
 }
 
 #input-container {
     display: flex;
     align-items: center;
+    margin-top: 10px;
 }
 
 #command-input {
-    background-color: #1e1e1e;
+    background-color: transparent;
     border: none;
     color: #ffffff;
     font-family: inherit;
     font-size: inherit;
     padding: 5px;
     width: 100%;
+    outline: none;
+    caret-color: #ffffff;
 }
 
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: #ffffff;
-    cursor: pointer;
-    font-size: 16px;
+#prompt {
+    user-select: none;
+    margin-right: 5px;
 }
 
-button:hover {
-    background-color: #0056b3;
+#welcome-message {
+    margin-bottom: 20px;
 }
