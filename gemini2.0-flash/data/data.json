@@ -1,0 +1,34 @@
+{
+  "en": {
+    "name": "Your Name",
+    "title": "Web Developer",
+    "about": "About me in English...",
+    "projects": [
+      {
+        "name": "Project 1",
+        "description": "Description in English..."
+      },
+      {
+        "name": "Project 2",
+        "description": "Description in English..."
+      }
+    ],
+    "contact": "Contact me in English"
+  },
+  "it": {
+    "name": "Il Tuo Nome",
+    "title": "Sviluppatore Web",
+    "about": "Descrizione in Italiano...",
+    "projects": [
+      {
+        "name": "Progetto 1",
+        "description": "Descrizione in Italiano..."
+      },
+      {
+        "name": "Progetto 2",
+        "description": "Descrizione in Italiano..."
+      }
+    ],
+    "contact": "Contattami in Italiano"
+  }
+}
