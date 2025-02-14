@@ -253,16 +253,20 @@
                         title: "Contacts"
                     }
                 },
-                mode: {
-                    terminal: "Normal Mode",
-                    normal:   "Terminal Mode"
-                },
+                buttons: {
+                    mode: {
+                        terminal: "Normal Mode",
+                        normal:   "Terminal Mode"
+                    },
+                    lang: "Italiano"
+                }
     }
         };
 
         let currentLang = 'it';
         let isTerminalMode = true;
-
+        console.log('script', 'content', content)
+        
         function toggleMode() {
             isTerminalMode = !isTerminalMode;
             document.body.className = isTerminalMode ? 'terminal-mode' : 'normal-mode';
@@ -272,7 +276,9 @@
         }
 
         function toggleLanguage() {
+            console.log('toggleLanguage', 'content', content)
             currentLang = currentLang === 'it' ? 'en' : 'it';
+            console.log('currentLang', currentLang) // ok
             updateContent();
             updateButtonText();
         }
@@ -285,10 +291,11 @@
         }
 
         function updateContent() {
+            console.log('updateContent', 'currentLang', currentLang)
             // Update terminal content
             const terminalContent = document.getElementById('terminal-content');
             // ... (Update terminal content based on language)
-
+            
             // Update normal content
             const normalContent = document.getElementById('normal-content');
             normalContent.querySelector('h1').textContent = content[currentLang].normal.title;
