@@ -1,0 +1,13 @@
+{
+    "it": {
+      "help": "Comandi disponibili: help, about, projects",
+      "about": "Sono un sviluppatore web con passione per la creazione di siti interattivi.",
+      "projects": "Ecco alcuni dei miei progetti: Progetto 1, Progetto 2, Progetto 3."
+    },
+    "en": {
+      "help": "Available commands: help, about, projects",
+      "about": "I am a web developer passionate about creating interactive websites.",
+      "projects": "Here are some of my projects: Project 1, Project 2, Project 3."
+    }
+  }
+  
