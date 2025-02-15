@@ -272,6 +272,7 @@
             document.body.className = isTerminalMode ? 'terminal-mode' : 'normal-mode';
             document.getElementById('terminal-content').className = isTerminalMode ? '' : 'hidden';
             document.getElementById('normal-content').className = isTerminalMode ? 'hidden' : '';
+            updateContent();
             updateButtonText();
         }
 
@@ -284,14 +285,19 @@
         }
 
         function updateButtonText() {
-            document.getElementById('modeToggle').textContent = isTerminalMode 
-            ? content[currentLang].buttons.mode.terminal
-            : content[currentLang].buttons.mode.normal;
-            document.getElementById('langToggle').textContent = content[currentLang].buttons.lang;
+            document.getElementById('modeToggle').textContent = isTerminalMode ?
+                content[currentLang].buttons.mode.terminal :
+                content[currentLang].buttons.mode.normal;
+            document.getElementById('langToggle').textContent = 
+                content[currentLang].buttons.lang;
+            
+            document.getElementById('langToggle').style.display = 
+                isTerminalMode ? 'none' : 'inline-block';            
         }
 
         function updateContent() {
             console.log('updateContent', 'currentLang', currentLang)
+            console.log('updateContent', 'isTerminalMode', isTerminalMode)
             // Update terminal content
             const terminalContent = document.getElementById('terminal-content');
             // ... (Update terminal content based on language)
