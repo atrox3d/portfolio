@@ -83,6 +83,17 @@
             background: #f8f9fa;
             border-radius: 8px;
         }
+        /* Horizontal List Styling */
+        .horizontal-list {
+            display: flex;
+            list-style-type: disc;
+            padding: 10;
+            margin: 0;
+        }
+
+        .horizontal-list li {
+            margin-right: 30px; /* Adjust spacing as needed */
+        }    
     </style>
 </head>
 <body class="terminal-mode">
@@ -203,7 +214,9 @@
                     },
                     skills: {
                         title: "Linguaggi, tecnologie, strumenti e sistemi operativi",
-                        items: ["bash", "cmd", "powershell", "c", "python", "php", "sql", "mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollamalinux", "windows", "macos"]
+                        languages: ["bash", "cmd", "powershell", "c", "python", "php", "sql"],
+                        tools: ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
+                        os: ["linux", "windows", "macos"],
                     },
                     projects: {
                         title: "Progetti"
@@ -299,6 +312,7 @@
         
         function createUnorderedList(items) {
             const ul = document.createElement('ul');
+            ul.className = 'horizontal-list';
             items.forEach(item => {
                 const li = document.createElement('li');
                 li.textContent = item;
@@ -341,12 +355,28 @@
             
             // Skills section
             // skill title
-            normalSkills.querySelector('h2').textContent = 
+            const normalSkillsTitle = normalSkills.querySelector('h2');
+            normalSkillsTitle.textContent = 
             currentContent.normal.skills.title;
             
             const oldSkills = normalSkills.querySelector('ul');
-            const newSkills = createUnorderedList(currentContent.normal.skills.items);
-            normalSkills.replaceChild(newSkills, oldSkills);
+            normalSkills.innerHTML = ''
+            normalSkills.appendChild(normalSkillsTitle);
+            normalSkills.appendChild(
+                createUnorderedList(
+                    currentContent.normal.skills.languages
+                )
+            );
+            normalSkills.appendChild(
+                createUnorderedList(
+                    currentContent.normal.skills.tools
+                )
+            );
+            normalSkills.appendChild(
+                createUnorderedList(
+                    currentContent.normal.skills.os
+                )
+            );
             
             // Projects section
             normalProjects.querySelector('h2').textContent = 
