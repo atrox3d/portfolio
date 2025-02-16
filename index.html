@@ -234,7 +234,10 @@
                         ]
                     },
                     contacts: {
-                        title: "Contatti"
+                        title: "Contatti",
+                        email: null,
+                        github: 'https://github/atrox3d',
+                        linkedin: 'https://linkedin',
                     }
                 },
                 buttons: {
@@ -391,12 +394,8 @@
             );
             
             // Projects section
-            normalProjects.querySelector('h2').textContent = 
-            currentContent.normal.projects.title;
-            
-            // Contacts section
-            normalContacts.querySelector('h2').textContent = 
-            currentContent.normal.contacts.title;
+            // normalProjects.querySelector('h2').textContent = 
+            // currentContent.normal.projects.title;
             
             // Clear existing project items
             normalProjects.innerHTML = '<h2>' + currentContent.normal.projects.title + '</h2>';
@@ -418,6 +417,33 @@
                 projectRepo.appendChild(repoURL)
                 normalProjects.appendChild(projectRepo);
             });
+            
+            // Contacts section
+            //normalContacts.querySelector('h2').textContent = 
+            //currentContent.normal.contacts.title;
+            normalContacts.innerHTML = '<h2>' + currentContent.normal.contacts.title + '</h2>';
+            
+            if (currentContent.normal.contacts.email !== null) {
+                normalEmail = document.createElement('p');
+                normalEmail.innerHTML = 
+                '<b>Mail:</b> ' + 
+                currentContent.normal.contacts.email;
+                normalContacts.appendChild(normalEmail)
+            }
+            
+            normalGithub = document.createElement('p')
+            normalGithub.innerHTML = 
+                '<b>Github:</b> ' + 
+                currentContent.normal.contacts.github;
+            normalContacts.appendChild(normalGithub)
+            
+            normalLinkedin = document.createElement('p')
+            normalLinkedin.innerHTML = 
+                '<b>Linkedin:</b> ' + 
+                currentContent.normal.contacts.linkedin;
+            normalContacts.appendChild(normalLinkedin)
+            
+                
         }
         // Initial content update
         
