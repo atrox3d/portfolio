@@ -219,7 +219,19 @@
                         os: ["linux", "windows", "macos"],
                     },
                     projects: {
-                        title: "Progetti"
+                        title: "Progetti",
+                        items: [
+                            {
+                                title: 'ETL lottery',
+                                stack: 'stack',
+                                repo:  'https://github.com/repo'
+                            },
+                            {
+                                title: 'something else',
+                                stack: 'stack',
+                                repo:  'https://github.com/repo'
+                            },
+                        ]
                     },
                     contacts: {
                         title: "Contatti"
@@ -380,13 +392,32 @@
             
             // Projects section
             normalProjects.querySelector('h2').textContent = 
-            'projectsss';
-            //content[currentLang].normal.projects.title;
+            currentContent.normal.projects.title;
             
             // Contacts section
             normalContacts.querySelector('h2').textContent = 
-            'contactsss';
-            // content[currentLang].normal.contacts.title;
+            currentContent.normal.contacts.title;
+            
+            // Clear existing project items
+            normalProjects.innerHTML = '<h2>' + currentContent.normal.projects.title + '</h2>';
+
+            currentContent.normal.projects.items.forEach(project => {
+                const projectTitle = document.createElement('h3');
+                projectTitle.textContent = project.title;
+                normalProjects.appendChild(projectTitle);
+
+                const projectStack = document.createElement('p');
+                projectStack.textContent = 'Stack: ' + project.stack;
+                normalProjects.appendChild(projectStack);
+
+                const projectRepo = document.createElement('p');
+                projectRepo.textContent = 'Repository: ';
+                const repoURL = document.createElement('a');
+                repoURL.textContent = project.repo
+                repoURL.href =  project.repo;
+                projectRepo.appendChild(repoURL)
+                normalProjects.appendChild(projectRepo);
+            });
         }
         // Initial content update
         
