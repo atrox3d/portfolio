@@ -424,30 +424,30 @@
             normalContacts.innerHTML = '<h2>' + currentContent.normal.contacts.title + '</h2>';
             
             if (currentContent.normal.contacts.email !== null) {
-                normalEmail = document.createElement('p');
+                const normalEmail = document.createElement('p');
                 normalEmail.innerHTML = 
                 '<b>Mail:</b> ' + 
                 currentContent.normal.contacts.email;
                 normalContacts.appendChild(normalEmail)
             }
             
-            normalGithub = document.createElement('p')
+            const normalGithub = document.createElement('p')
+            const gh = currentContent.normal.contacts.github
             normalGithub.innerHTML = 
-                '<b>Github:</b> ' + 
-                currentContent.normal.contacts.github;
+                '<b>Github:</b> <a href="' + gh + '">'+gh+'</a>';
             normalContacts.appendChild(normalGithub)
             
-            normalLinkedin = document.createElement('p')
+            const normalLinkedin = document.createElement('p')
+            const li = currentContent.normal.contacts.linkedin; 
             normalLinkedin.innerHTML = 
-                '<b>Linkedin:</b> ' + 
-                currentContent.normal.contacts.linkedin;
+                '<b>Linkedin:</b> <a href="' + li + '">'+li+'</a>';
             normalContacts.appendChild(normalLinkedin)
             
                 
         }
         // Initial content update
         
-        toggleMode()    // delete me
+        //toggleMode()    // delete me
         
         updateButtonText();
         updateContent();
