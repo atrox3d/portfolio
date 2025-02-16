@@ -298,6 +298,10 @@
         function updateContent() {
             console.log('updateContent', 'currentLang', currentLang)
             console.log('updateContent', 'isTerminalMode', isTerminalMode)
+            
+            const currentContent = content[currentLang];
+            
+            
             // Update terminal content
             const terminalContent = document.getElementById('terminal-content');
             // ... (Update terminal content based on language)
@@ -306,34 +310,42 @@
             
             // Update normal content
             const normalContent = document.getElementById('normal-content');
-            // normalContent.querySelector('h1').textContent = content[currentLang].normal.title;
-            document.getElementById('normal-name').textContent = content[currentLang].normal.title;
+            const normalName = document.getElementById('normal-name');
             const sections = normalContent.querySelectorAll('section');
+            const normalWhoami = sections[0];
+            const normalSkills = sections[1];
+            const normalProjects = sections[2];
+            const normalContacts = sections[3];
+
+            // normalContent.querySelector('h1').textContent = content[currentLang].normal.title;
+            normalName.textContent = currentContent.normal.title;
             
             // About section
-            sections[0].querySelector('h2').textContent = 
-            content[currentLang].normal.about.title;
+            normalWhoami.querySelector('h2').textContent = 
+            currentContent.normal.about.title;
             
-            sections[0].querySelector('p').textContent = 
-            content[currentLang].normal.about.content;
+            normalWhoami.querySelector('p').textContent = 
+            currentContent.normal.about.content;
             
             // Skills section
             // skill title
-            sections[1].querySelector('h2').textContent = 
-            content[currentLang].normal.skills.title;
+            normalSkills.querySelector('h2').textContent = 
+            currentContent.normal.skills.title;
             
             // Projects section
-            sections[2].querySelector('h2').textContent = 
+            normalProjects.querySelector('h2').textContent = 
             'projectsss';
             //content[currentLang].normal.projects.title;
             
             // Contacts section
-            sections[3].querySelector('h2').textContent = 
+            normalContacts.querySelector('h2').textContent = 
             'contactsss';
             // content[currentLang].normal.contacts.title;
         }
-
         // Initial content update
+        
+        toggleMode()    // delete me
+        
         updateButtonText();
         updateContent();
     </script>
