@@ -296,7 +296,17 @@
             document.getElementById('langToggle').style.display = 
                 isTerminalMode ? 'none' : 'inline-block';            
         }
-
+        
+        function createUnorderedList(items) {
+            const ul = document.createElement('ul');
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
+            });
+            return ul;
+        }
+        
         function updateContent() {
             console.log('updateContent', 'currentLang', currentLang)
             console.log('updateContent', 'isTerminalMode', isTerminalMode)
@@ -314,7 +324,7 @@
             const normalContent = document.getElementById('normal-content');
             const normalName = document.getElementById('normal-name');
             const sections = normalContent.querySelectorAll('section');
-            const normalWhoami = sections[0];
+            const normalAbout = sections[0];
             const normalSkills = sections[1];
             const normalProjects = sections[2];
             const normalContacts = sections[3];
@@ -323,16 +333,20 @@
             normalName.textContent = currentContent.normal.name;
             
             // About section
-            normalWhoami.querySelector('h2').textContent = 
+            normalAbout.querySelector('h2').textContent = 
             currentContent.normal.about.title;
             
-            normalWhoami.querySelector('p').innerHTML = 
+            normalAbout.querySelector('p').innerHTML = 
             currentContent.normal.about.content.replace(/\n/g, '<br>');
             
             // Skills section
             // skill title
             normalSkills.querySelector('h2').textContent = 
             currentContent.normal.skills.title;
+            
+            const oldSkills = normalSkills.querySelector('ul');
+            const newSkills = createUnorderedList(currentContent.normal.skills.items);
+            normalSkills.replaceChild(newSkills, oldSkills);
             
             // Projects section
             normalProjects.querySelector('h2').textContent = 
