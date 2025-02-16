@@ -265,7 +265,7 @@
 
         let currentLang = 'it';
         let isTerminalMode = true;
-        console.log('script', 'content', content)
+        console.log('main', 'content', content)
         
         function toggleMode() {
             isTerminalMode = !isTerminalMode;
@@ -334,6 +334,7 @@
         }
 
         // Initial content update
+        updateButtonText();
         updateContent();
     </script>
 </body>
