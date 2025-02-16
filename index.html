@@ -97,7 +97,7 @@
             <span class="prompt">visitor@portfolio:~$</span> whoami
         </div>
         <div class="output">
-            <p>Mario Rossi</p>
+            <p>terminal html name</p>
             <p>Sviluppatore Full Stack</p>
         </div>
 
@@ -138,7 +138,7 @@
 
     <!-- Normal Mode Content -->
     <div id="normal-content" class="hidden">
-        <h1>Mario Rossi</h1>
+        <h1 id="normal-name">normal html name</h1>
         <section>
             <h2>Chi Sono</h2>
             <p>Sviluppatore Full Stack con passione per tecnologie web moderne e open source.</p>
@@ -177,7 +177,7 @@
         const content = {
             it: {
                 terminal: {
-                    whoami: ["Mario Rossi", "Sviluppatore Full Stack"],
+                    whoami: ["json terminal it", "Sviluppatore Full Stack"],
                     skills: ["- HTML, CSS, JavaScript", "- React, Node.js", "- Python, Java", "- Git, Docker"],
                     projects: [
                         "1. E-commerce Platform",
@@ -194,14 +194,14 @@
                     ]
                 },
                 normal: {
-                    title: "Mario Rossi",
+                    title: "Roberto Lombardo",
                     about: {
-                        title: "Chi Sono",
-                        content: "Sviluppatore Full Stack con passione per tecnologie web moderne e open source."
+                        title: "Chi sono",
+                        content: "Sono un informatico programmatore con un’esperienza ventennale nello sviluppo di software backend con focus sulle nuove tecnologie (attualmente LLM). L’attitudine che mi contraddistingue è la voglia di imparare continuamente quanto c’è di nuovo nel mondo IT. Desidero infatti fornire il migliore e più aggiornato supporto alle aziende con cui lavoro."
                     },
                     skills: {
-                        title: "Competenze",
-                        items: ["HTML, CSS, JavaScript", "React, Node.js", "Python, Java", "Git, Docker"]
+                        title: "Linguaggi, tecnologie, strumenti e sistemi operativi",
+                        items: ["bash", "cmd", "powershell", "c", "python", "php", "sql", "mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollamalinux", "windows", "macos"]
                     },
                     projects: {
                         title: "Progetti"
@@ -220,7 +220,7 @@
             },
             en: {
                 terminal: {
-                    whoami: ["Mario Rossi", "Full Stack Developer"],
+                    whoami: ["json terminal eng", "Full Stack Developer"],
                     skills: ["- HTML, CSS, JavaScript", "- React, Node.js", "- Python, Java", "- Git, Docker"],
                     projects: [
                         "1. E-commerce Platform",
@@ -237,7 +237,7 @@
                     ]
                 },
                 normal: {
-                    title: "Mario Rossi",
+                    title: "json normal eng",
                     about: {
                         title: "About Me",
                         content: "Full Stack Developer passionate about modern web technologies and open source."
@@ -302,23 +302,35 @@
             const terminalContent = document.getElementById('terminal-content');
             // ... (Update terminal content based on language)
             
+            
+            
             // Update normal content
             const normalContent = document.getElementById('normal-content');
-            normalContent.querySelector('h1').textContent = content[currentLang].normal.title;
+            // normalContent.querySelector('h1').textContent = content[currentLang].normal.title;
+            document.getElementById('normal-name').textContent = content[currentLang].normal.title;
             const sections = normalContent.querySelectorAll('section');
             
             // About section
-            sections[0].querySelector('h2').textContent = content[currentLang].normal.about.title;
-            sections[0].querySelector('p').textContent = content[currentLang].normal.about.content;
+            sections[0].querySelector('h2').textContent = 
+            content[currentLang].normal.about.title;
+            
+            sections[0].querySelector('p').textContent = 
+            content[currentLang].normal.about.content;
             
             // Skills section
-            sections[1].querySelector('h2').textContent = content[currentLang].normal.skills.title;
+            // skill title
+            sections[1].querySelector('h2').textContent = 
+            content[currentLang].normal.skills.title;
             
             // Projects section
-            sections[2].querySelector('h2').textContent = content[currentLang].normal.projects.title;
+            sections[2].querySelector('h2').textContent = 
+            'projectsss';
+            //content[currentLang].normal.projects.title;
             
             // Contacts section
-            sections[3].querySelector('h2').textContent = content[currentLang].normal.contacts.title;
+            sections[3].querySelector('h2').textContent = 
+            'contactsss';
+            // content[currentLang].normal.contacts.title;
         }
 
         // Initial content update
