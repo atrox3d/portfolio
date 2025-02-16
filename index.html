@@ -194,10 +194,12 @@
                     ]
                 },
                 normal: {
-                    title: "Roberto Lombardo",
+                    name: "Roberto Lombardo",
                     about: {
                         title: "Chi sono",
-                        content: "Sono un informatico programmatore con un’esperienza ventennale nello sviluppo di software backend con focus sulle nuove tecnologie (attualmente LLM). L’attitudine che mi contraddistingue è la voglia di imparare continuamente quanto c’è di nuovo nel mondo IT. Desidero infatti fornire il migliore e più aggiornato supporto alle aziende con cui lavoro."
+                        content: `Sono un informatico programmatore con un’esperienza ventennale nello sviluppo di software backend con focus sulle nuove tecnologie (attualmente LLM).
+                        L’attitudine che mi contraddistingue è la voglia di imparare continuamente quanto c’è di nuovo nel mondo IT.
+                        Desidero infatti fornire il migliore e più aggiornato supporto alle aziende con cui lavoro.`
                     },
                     skills: {
                         title: "Linguaggi, tecnologie, strumenti e sistemi operativi",
@@ -237,7 +239,7 @@
                     ]
                 },
                 normal: {
-                    title: "json normal eng",
+                    name: "json normal eng",
                     about: {
                         title: "About Me",
                         content: "Full Stack Developer passionate about modern web technologies and open source."
@@ -316,16 +318,16 @@
             const normalSkills = sections[1];
             const normalProjects = sections[2];
             const normalContacts = sections[3];
-
+            
             // normalContent.querySelector('h1').textContent = content[currentLang].normal.title;
-            normalName.textContent = currentContent.normal.title;
+            normalName.textContent = currentContent.normal.name;
             
             // About section
             normalWhoami.querySelector('h2').textContent = 
             currentContent.normal.about.title;
             
-            normalWhoami.querySelector('p').textContent = 
-            currentContent.normal.about.content;
+            normalWhoami.querySelector('p').innerHTML = 
+            currentContent.normal.about.content.replace(/\n/g, '<br>');
             
             // Skills section
             // skill title
