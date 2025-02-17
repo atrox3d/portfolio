@@ -114,10 +114,10 @@
             <p>Sviluppatore Full Stack</p>
         </div>
 
-        <div class="command-line">
+        <div class="command-line" id="skills-prompt">
             <span class="prompt">visitor@portfolio:~$</span> cat skills.txt
         </div>
-        <div class="output">
+        <div class="output" id="skills-output">
             <p>- HTML, CSS, JavaScript</p>
             <p>- React, Node.js</p>
             <p>- Python, Java</p>
@@ -195,7 +195,11 @@
                         name: "Roberto Lombardo",
                         description: "Sviluppatore backend"
                     },
-                    skills: ["- HTML, CSS, JavaScript", "- React, Node.js", "- Python, Java", "- Git, Docker"],
+                    skills: {
+                        languages: ["bash", "cmd", "powershell", "c", "python", "php", "sql"],
+                        tools: ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
+                        os: ["linux", "windows", "macos"],
+                    },
                     projects: [
                         "1. E-commerce Platform",
                         "   - Stack: React, Node.js, MongoDB",
@@ -260,7 +264,11 @@
                         name: "Roberto Lombardo",
                         description: "Backend developer"
                     },
-                    skills: ["- HTML, CSS, JavaScript", "- React, Node.js", "- Python, Java", "- Git, Docker"],
+                    skills: {
+                        languages: ["bash", "cmd", "powershell", "c", "python", "php", "sql"],
+                        tools: ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
+                        os: ["linux", "windows", "macos"],
+                    },
                     projects: [
                         "1. E-commerce Platform",
                         "   - Stack: React, Node.js, MongoDB",
@@ -374,13 +382,31 @@
             const terminalContent = document.getElementById('terminal-content');
             // ... (Update terminal content based on language)
             const whoami = document.getElementById('whoami-output');
-            //const prompt = whoami.querySelector('.prompt')
-            //console.log('updateTerminalContent', 'whoami', 
-            //    whoami.childNodes[2])
-            // whoami.childNodes[2].textContent = 'hello'
             const [name, description] = whoami.querySelectorAll('p');
             name.textContent = content.whoami.name;
             description.textContent = content.whoami.description;
+            
+            const skills = document.getElementById('skills-output');
+            
+            skills.innerHTML = '';
+            /*
+            content.skills.languages.forEach(language => {
+                const languages = document.createElement('p');
+                languages.textContent = language;
+                skills.appendChild(languages);
+                });
+                */
+            const languages = document.createElement('p');
+            languages.textContent = content.skills.languages.join(', ')
+            skills.appendChild(languages);
+
+            const tools = document.createElement('p');
+            tools.textContent = content.skills.tools.join(', ');
+            skills.appendChild(tools);
+
+            const os = document.createElement('p');
+            os.textContent = content.skills.os.join(', ');
+            skills.appendChild(os);
             
         }
         
