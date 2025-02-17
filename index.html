@@ -113,14 +113,14 @@
             <p>Roby Lombardo</p>
             <p>Sviluppatore backend</p>
         </div>
-
+        <br/>
         <div class="command-line" id="skills-prompt">
             <span class="prompt">visitor@portfolio:~$</span> cat skills.txt
         </div>
         <div class="output" id="skills-output">
             <p>- skills</p>
         </div>
-
+        <br/>
         <div class="command-line">
             <span class="prompt" id="'projects-prompt">visitor@portfolio:~$</span> cat progetti.txt
         </div>
@@ -136,7 +136,7 @@
                 <p>   - Repository: github.com/mariorossi/ecommerce</p>
             </div>
         </div>
-
+        <br/>
         <div class="command-line">
             <span class="prompt">visitor@portfolio:~$</span> cat contatti.txt
         </div>
@@ -145,6 +145,7 @@
             <p>GitHub: github.com/mariorossi</p>
             <p>LinkedIn: linkedin.com/in/mariorossi</p>
         </div>
+        <br/>
         <div class="command-line">
             <span class="prompt">visitor@portfolio:~$</span><span class="cursor"></span>
         </div>
@@ -203,10 +204,10 @@
                     },
                     projects: [
                         {
-                            title: "1. E-commerce Platform",
-                            stack: "   - Stack: React, Node.js, MongoDB",
-                            repo: "   - Repository: github.com/mariorossi/ecommerce",
-                            url: 'http://example.com',
+                            title: 'ETL lottery',
+                            stack: 'python, pandas, mysql , sqlite',
+                            repo:  'https://github.com/repo',
+                            url:   'https://atrox3dlottery.streamlit.app/',
                         },
                         {
                             title: "2. E-commerce Platform",
@@ -278,10 +279,10 @@
                     },
                     projects: [
                         {
-                            title: "1. E-commerce Platform",
-                            stack: "   - Stack: React, Node.js, MongoDB",
-                            repo: "   - Repository: github.com/mariorossi/ecommerce",
-                            url: 'http://example.com',
+                            title: 'ETL lottery',
+                            stack: 'python',
+                            repo:  'https://github.com/repo',
+                            url:   'https://atrox3dlottery.streamlit.app/',
                         },
                         {
                             title: "2. E-commerce Platform",
@@ -434,7 +435,11 @@
                 stack.textContent = project.stack;
                 
                 const repo = document.createElement('p');
-                repo.textContent = project.repo;
+                // repo.textContent = project.repo;
+                const repoLink = document.createElement('a');
+                repoLink.textContent = project.repo;
+                repoLink.href = project.repo;
+                repo.appendChild(repoLink);
                 
                 const pdiv = document.createElement('div');
                 pdiv.appendChild(title);
@@ -443,7 +448,10 @@
                 
                 if (project.url !== null){
                     const url = document.createElement('p');
-                    url.textContent = project.url;
+                    const urlLink = document.createElement('a');
+                    urlLink.textContent = project.url;
+                    urlLink.href = project.url;
+                    url.appendChild(urlLink);
                     pdiv.appendChild(url);
                     }
                 projects.appendChild(pdiv);
