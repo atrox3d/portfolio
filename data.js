@@ -1,3 +1,9 @@
+const common = {
+    languages   : ["bash", "cmd", "powershell", "c", "python", "php", "sql"],
+    tools       : ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
+    os          : ["linux", "windows", "macos"],
+}
+
 const data = {
     it: {
         terminal: {
@@ -7,9 +13,9 @@ const data = {
             },
             skills: {
                 filename    : 'competenze.txt',
-                languages   : ["bash", "cmd", "powershell", "c", "python", "php", "sql"],
-                tools       : ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
-                os          : ["linux", "windows", "macos"],
+                languages   : common.languages,
+                tools       : common.tools,
+                os          : common.os,
             },
             projects: [
                 {
@@ -35,9 +41,9 @@ const data = {
             },
             skills: {
                 title       : "Linguaggi, tecnologie, strumenti e sistemi operativi",
-                languages   : ["bash", "cmd", "powershell", "c", "python", "php", "sql"],
-                tools       : ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
-                os          : ["linux", "windows", "macos"],
+                languages   : common.languages,
+                tools       : common.tools,
+                os          : common.os,
             },
             projects: {
                 title       : "Progetti",
@@ -72,9 +78,9 @@ const data = {
                 description : "Backend developer"
             },
             skills: {
-                languages   : ["bash", "cmd", "powershell", "c", "python", "php", "sql"],
-                tools       : ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
-                os          : ["linux", "windows", "macos"],
+                languages   : common.languages,
+                tools       : common.tools,
+                os          : common.os,
             },
             projects: [
                 {
@@ -100,9 +106,9 @@ const data = {
             },
             skills: {
                 title       : "Languages, technologies, tools, and operating systems",
-                languages   : ["bash", "cmd", "powershell", "c", "python", "php", "sql"],
-                tools       : ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
-                os          : ["linux", "windows", "macos"],
+                languages   : common.languages,
+                tools       : common.tools,
+                os          : common.os,
             },
             projects: {
                 title       : "Projects",
