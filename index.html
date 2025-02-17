@@ -110,30 +110,31 @@
             <span class="prompt">visitor@portfolio:~$</span> whoami
         </div>
         <div class="output" id="whoami-output">
-            <p>terminal html name</p>
-            <p>Sviluppatore Full Stack</p>
+            <p>Roby Lombardo</p>
+            <p>Sviluppatore backend</p>
         </div>
 
         <div class="command-line" id="skills-prompt">
             <span class="prompt">visitor@portfolio:~$</span> cat skills.txt
         </div>
         <div class="output" id="skills-output">
-            <p>- HTML, CSS, JavaScript</p>
-            <p>- React, Node.js</p>
-            <p>- Python, Java</p>
-            <p>- Git, Docker</p>
+            <p>- skills</p>
         </div>
 
         <div class="command-line">
-            <span class="prompt">visitor@portfolio:~$</span> cat progetti.txt
+            <span class="prompt" id="'projects-prompt">visitor@portfolio:~$</span> cat progetti.txt
         </div>
-        <div class="output">
-            <p>1. E-commerce Platform</p>
-            <p>   - Stack: React, Node.js, MongoDB</p>
-            <p>   - Repository: github.com/mariorossi/ecommerce</p>
-            <p>2. Weather App</p>
-            <p>   - Stack: Vue.js, Express</p>
-            <p>   - Repository: github.com/mariorossi/weather</p>
+        <div class="output" id='projects-output'>
+            <div>
+                <p>1. project name</p>
+                <p>   - project stack</p>
+                <p>   - Repository: github.com/mariorossi/ecommerce</p>
+            </div>
+            <div>
+                <p>1. project name</p>
+                <p>   - project stack</p>
+                <p>   - Repository: github.com/mariorossi/ecommerce</p>
+            </div>
         </div>
 
         <div class="command-line">
@@ -201,12 +202,18 @@
                         os: ["linux", "windows", "macos"],
                     },
                     projects: [
-                        "1. E-commerce Platform",
-                        "   - Stack: React, Node.js, MongoDB",
-                        "   - Repository: github.com/mariorossi/ecommerce",
-                        "2. Weather App",
-                        "   - Stack: Vue.js, Express",
-                        "   - Repository: github.com/mariorossi/weather"
+                        {
+                            title: "1. E-commerce Platform",
+                            stack: "   - Stack: React, Node.js, MongoDB",
+                            repo: "   - Repository: github.com/mariorossi/ecommerce",
+                            url: 'http://example.com',
+                        },
+                        {
+                            title: "2. E-commerce Platform",
+                            stack: "   - Stack: React, Node.js, MongoDB",
+                            repo: "   - Repository: github.com/mariorossi/ecommerce",
+                            url: null,
+                        },
                     ],
                     contacts: [
                         "Email: mario.rossi@example.com",
@@ -270,12 +277,18 @@
                         os: ["linux", "windows", "macos"],
                     },
                     projects: [
-                        "1. E-commerce Platform",
-                        "   - Stack: React, Node.js, MongoDB",
-                        "   - Repository: github.com/mariorossi/ecommerce",
-                        "2. Weather App",
-                        "   - Stack: Vue.js, Express",
-                        "   - Repository: github.com/mariorossi/weather"
+                        {
+                            title: "1. E-commerce Platform",
+                            stack: "   - Stack: React, Node.js, MongoDB",
+                            repo: "   - Repository: github.com/mariorossi/ecommerce",
+                            url: 'http://example.com',
+                        },
+                        {
+                            title: "2. E-commerce Platform",
+                            stack: "   - Stack: React, Node.js, MongoDB",
+                            repo: "   - Repository: github.com/mariorossi/ecommerce",
+                            url: null,
+                        },
                     ],
                     contacts: [
                         "Email: mario.rossi@example.com",
@@ -380,22 +393,20 @@
             
             // Update terminal content
             const terminalContent = document.getElementById('terminal-content');
-            // ... (Update terminal content based on language)
+            //
+            // whoami
+            //
             const whoami = document.getElementById('whoami-output');
+            
             const [name, description] = whoami.querySelectorAll('p');
             name.textContent = content.whoami.name;
             description.textContent = content.whoami.description;
-            
+            //
+            // skills
+            //
             const skills = document.getElementById('skills-output');
             
             skills.innerHTML = '';
-            /*
-            content.skills.languages.forEach(language => {
-                const languages = document.createElement('p');
-                languages.textContent = language;
-                skills.appendChild(languages);
-                });
-                */
             const languages = document.createElement('p');
             languages.textContent = content.skills.languages.join(', ')
             skills.appendChild(languages);
@@ -407,7 +418,37 @@
             const os = document.createElement('p');
             os.textContent = content.skills.os.join(', ');
             skills.appendChild(os);
+            //
+            // projects
+            //
+            const projects = document.getElementById('projects-output');
             
+            projects.innerHTML = '';
+            console.log('contents.projects', content.projects)
+
+            content.projects.forEach(project => {
+                const title = document.createElement('p');
+                title.textContent = project.title;
+                
+                const stack = document.createElement('p');
+                stack.textContent = project.stack;
+                
+                const repo = document.createElement('p');
+                repo.textContent = project.repo;
+                
+                const pdiv = document.createElement('div');
+                pdiv.appendChild(title);
+                pdiv.appendChild(stack);
+                pdiv.appendChild(repo);
+                
+                if (project.url !== null){
+                    const url = document.createElement('p');
+                    url.textContent = project.url;
+                    pdiv.appendChild(url);
+                    }
+                projects.appendChild(pdiv);
+            });
+            console.log('projects', projects)
         }
         
         function updateNormalContent() {
