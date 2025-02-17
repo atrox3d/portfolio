@@ -357,15 +357,25 @@
             return ul;
         }
         
-        function updateContent() {
-            console.log('updateContent', 'currentLang', currentLang)
-            console.log('updateContent', 'isTerminalMode', isTerminalMode)
+        function updateTerminalContent() {
+            console.log('updateTerminalContent', 'currentLang', currentLang)
+            console.log('updateTerminalContent', 'isTerminalMode', isTerminalMode)
             
             const currentContent = content[currentLang];
             
-            
             // Update terminal content
             const terminalContent = document.getElementById('terminal-content');
+            // ... (Update terminal content based on language)
+        }
+        
+        function updateNormalContent() {
+            console.log('updateNormalContent', 'currentLang', currentLang)
+            console.log('updateNormalContent', 'isTerminalMode', isTerminalMode)
+            
+            const currentContent = content[currentLang];
+            
+            // Update terminal content
+            //const terminalContent = document.getElementById('terminal-content');
             // ... (Update terminal content based on language)
             
             
@@ -413,7 +423,6 @@
                     currentContent.normal.skills.os
                 )
             );
-            
             // Projects section
             // normalProjects.querySelector('h2').textContent = 
             // currentContent.normal.projects.title;
@@ -466,7 +475,12 @@
             
                 
         }
-        // Initial content update
+            
+        function updateContent() {
+            updateTerminalContent();
+            updateNormalContent();
+        }
+    // Initial content update
         
         //toggleMode()    // delete me
         
