@@ -4,6 +4,13 @@ const common = {
         tools       : ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
         os          : ["linux", "windows", "macos"],
     },
+    projects: [
+        {
+            stack   : 'python, pandas, mysql , sqlite',
+            repo    : 'https://github.com/atrox3d/etl_lottery',
+            url     : 'https://atrox3dlottery.streamlit.app/',
+        },
+    ],
     contacts: {
         email       : null,
         github      : 'https://github/atrox3d',
@@ -27,9 +34,9 @@ const data = {
             projects: [
                 {
                     title   : '1. ETL lottery',
-                    stack   : 'python, pandas, mysql , sqlite',
-                    repo    : 'https://github.com/atrox3d/etl_lottery',
-                    url     : 'https://atrox3dlottery.streamlit.app/',
+                    stack   : common.projects[0].stack,
+                    repo    : common.projects[0].repo,
+                    url     : common.projects[0].url,
                 },
             ],
             contacts: [
@@ -57,10 +64,10 @@ const data = {
                 items       : [
                     {
                         title: '1. ETL lottery',
-                        stack: 'python, pandas, mysql , sqlite',
-                        repo:  'https://github.com/atrox3d/etl_lottery',
-                        url:   'https://atrox3dlottery.streamlit.app/',
-                    },
+                        stack   : common.projects[0].stack,
+                        repo    : common.projects[0].repo,
+                        url     : common.projects[0].url,
+                        },
                 ],
             },
             contacts: {
@@ -92,9 +99,9 @@ const data = {
             projects: [
                 {
                     title   : '1. ETL lottery',
-                    stack   : 'python, pandas, mysql , sqlite',
-                    repo    : 'https://github.com/atrox3d/etl_lottery',
-                    url     : 'https://atrox3dlottery.streamlit.app/',
+                    stack   : common.projects[0].stack,
+                    repo    : common.projects[0].repo,
+                    url     : common.projects[0].url,
                 },
             ],
             contacts: [
@@ -122,9 +129,9 @@ const data = {
                 items       : [
                     {
                         title: '1. ETL lottery',
-                        stack: 'python, pandas, mysql , sqlite',
-                        repo:  'https://github.com/atrox3d/etl_lottery',
-                        url:   'https://atrox3dlottery.streamlit.app/',
+                        stack   : common.projects[0].stack,
+                        repo    : common.projects[0].repo,
+                        url     : common.projects[0].url,
                     },
                 ]
             },
