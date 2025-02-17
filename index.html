@@ -106,7 +106,7 @@
 
     <!-- Terminal Mode Content -->
     <div id="terminal-content">
-        <div class="command-line">
+        <div class="command-line" id="whoami">
             <span class="prompt">visitor@portfolio:~$</span> whoami
         </div>
         <div class="output">
@@ -187,10 +187,10 @@
     </div>
 
     <script>
-        const content = {
+        const data = {
             it: {
                 terminal: {
-                    whoami: ["json terminal it", "Sviluppatore Full Stack"],
+                    whoami: ["Roberto Lombardo", "Sviluppatore Backend"],
                     skills: ["- HTML, CSS, JavaScript", "- React, Node.js", "- Python, Java", "- Git, Docker"],
                     projects: [
                         "1. E-commerce Platform",
@@ -316,7 +316,7 @@
 
         let currentLang = 'it';
         let isTerminalMode = true;
-        console.log('main', 'content', content)
+        console.log('main', 'content', data)
         
         function toggleMode() {
             isTerminalMode = !isTerminalMode;
@@ -328,7 +328,7 @@
         }
 
         function toggleLanguage() {
-            console.log('toggleLanguage', 'content', content)
+            console.log('toggleLanguage', 'content', data)
             currentLang = currentLang === 'it' ? 'en' : 'it';
             console.log('currentLang', currentLang) // ok
             updateContent();
@@ -337,10 +337,10 @@
 
         function updateButtonText() {
             document.getElementById('modeToggle').textContent = isTerminalMode ?
-                content[currentLang].buttons.mode.terminal :
-                content[currentLang].buttons.mode.normal;
+                data[currentLang].buttons.mode.terminal :
+                data[currentLang].buttons.mode.normal;
             document.getElementById('langToggle').textContent = 
-                content[currentLang].buttons.lang;
+                data[currentLang].buttons.lang;
             
             // document.getElementById('langToggle').style.display = 
             //    isTerminalMode ? 'none' : 'inline-block';            
@@ -361,7 +361,7 @@
             console.log('updateTerminalContent', 'currentLang', currentLang)
             console.log('updateTerminalContent', 'isTerminalMode', isTerminalMode)
             
-            const currentContent = content[currentLang];
+            const content = data[currentLang];
             
             // Update terminal content
             const terminalContent = document.getElementById('terminal-content');
@@ -372,7 +372,7 @@
             console.log('updateNormalContent', 'currentLang', currentLang)
             console.log('updateNormalContent', 'isTerminalMode', isTerminalMode)
             
-            const currentContent = content[currentLang];
+            const content = data[currentLang];
             
             // Update terminal content
             //const terminalContent = document.getElementById('terminal-content');
@@ -382,45 +382,45 @@
             
             // Update normal content
             const normalContent = document.getElementById('normal-content');
-            const normalName = document.getElementById('normal-name');
+            const name = document.getElementById('normal-name');
             const sections = normalContent.querySelectorAll('section');
-            const normalAbout = sections[0];
-            const normalSkills = sections[1];
-            const normalProjects = sections[2];
-            const normalContacts = sections[3];
+            const about = sections[0];
+            const skills = sections[1];
+            const projects = sections[2];
+            const contacts = sections[3];
             
             // normalContent.querySelector('h1').textContent = content[currentLang].normal.title;
-            normalName.textContent = currentContent.normal.name;
+            name.textContent = content.normal.name;
             
             // About section
-            normalAbout.querySelector('h2').textContent = 
-            currentContent.normal.about.title;
+            about.querySelector('h2').textContent = 
+            content.normal.about.title;
             
-            normalAbout.querySelector('p').innerHTML = 
-            currentContent.normal.about.content.replace(/\n/g, '<br>');
+            about.querySelector('p').innerHTML = 
+            content.normal.about.content.replace(/\n/g, '<br>');
             
             // Skills section
             // skill title
-            const normalSkillsTitle = normalSkills.querySelector('h2');
+            const normalSkillsTitle = skills.querySelector('h2');
             normalSkillsTitle.textContent = 
-            currentContent.normal.skills.title;
+            content.normal.skills.title;
             
-            const oldSkills = normalSkills.querySelector('ul');
-            normalSkills.innerHTML = ''
-            normalSkills.appendChild(normalSkillsTitle);
-            normalSkills.appendChild(
+            const oldSkills = skills.querySelector('ul');
+            skills.innerHTML = ''
+            skills.appendChild(normalSkillsTitle);
+            skills.appendChild(
                 createUnorderedList(
-                    currentContent.normal.skills.languages
+                    content.normal.skills.languages
                 )
             );
-            normalSkills.appendChild(
+            skills.appendChild(
                 createUnorderedList(
-                    currentContent.normal.skills.tools
+                    content.normal.skills.tools
                 )
             );
-            normalSkills.appendChild(
+            skills.appendChild(
                 createUnorderedList(
-                    currentContent.normal.skills.os
+                    content.normal.skills.os
                 )
             );
             // Projects section
@@ -428,16 +428,16 @@
             // currentContent.normal.projects.title;
             
             // Clear existing project items
-            normalProjects.innerHTML = '<h2>' + currentContent.normal.projects.title + '</h2>';
+            projects.innerHTML = '<h2>' + content.normal.projects.title + '</h2>';
 
-            currentContent.normal.projects.items.forEach(project => {
+            content.normal.projects.items.forEach(project => {
                 const projectTitle = document.createElement('h3');
                 projectTitle.textContent = project.title;
-                normalProjects.appendChild(projectTitle);
+                projects.appendChild(projectTitle);
 
                 const projectStack = document.createElement('p');
                 projectStack.textContent = 'Stack: ' + project.stack;
-                normalProjects.appendChild(projectStack);
+                projects.appendChild(projectStack);
 
                 const projectRepo = document.createElement('p');
                 projectRepo.textContent = 'Repository: ';
@@ -445,33 +445,33 @@
                 repoURL.textContent = project.repo
                 repoURL.href =  project.repo;
                 projectRepo.appendChild(repoURL)
-                normalProjects.appendChild(projectRepo);
+                projects.appendChild(projectRepo);
             });
             
             // Contacts section
             //normalContacts.querySelector('h2').textContent = 
             //currentContent.normal.contacts.title;
-            normalContacts.innerHTML = '<h2>' + currentContent.normal.contacts.title + '</h2>';
+            contacts.innerHTML = '<h2>' + content.normal.contacts.title + '</h2>';
             
-            if (currentContent.normal.contacts.email !== null) {
+            if (content.normal.contacts.email !== null) {
                 const normalEmail = document.createElement('p');
                 normalEmail.innerHTML = 
                 '<b>Mail:</b> ' + 
-                currentContent.normal.contacts.email;
-                normalContacts.appendChild(normalEmail)
+                content.normal.contacts.email;
+                contacts.appendChild(normalEmail)
             }
             
             const normalGithub = document.createElement('p')
-            const gh = currentContent.normal.contacts.github
+            const gh = content.normal.contacts.github
             normalGithub.innerHTML = 
                 '<b>Github:</b> <a href="' + gh + '">'+gh+'</a>';
-            normalContacts.appendChild(normalGithub)
+            contacts.appendChild(normalGithub)
             
             const normalLinkedin = document.createElement('p')
-            const li = currentContent.normal.contacts.linkedin; 
+            const li = content.normal.contacts.linkedin; 
             normalLinkedin.innerHTML = 
                 '<b>Linkedin:</b> <a href="' + li + '">'+li+'</a>';
-            normalContacts.appendChild(normalLinkedin)
+            contacts.appendChild(normalLinkedin)
             
                 
         }
