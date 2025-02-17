@@ -1,7 +1,9 @@
 const common = {
-    languages   : ["bash", "cmd", "powershell", "c", "python", "php", "sql"],
-    tools       : ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
-    os          : ["linux", "windows", "macos"],
+    skills: {
+        languages   : ["bash", "cmd", "powershell", "c", "python", "php", "sql"],
+        tools       : ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
+        os          : ["linux", "windows", "macos"],
+    },
 }
 
 const data = {
@@ -13,9 +15,9 @@ const data = {
             },
             skills: {
                 filename    : 'competenze.txt',
-                languages   : common.languages,
-                tools       : common.tools,
-                os          : common.os,
+                languages   : common.skills.languages,
+                tools       : common.skills.tools,
+                os          : common.skills.os,
             },
             projects: [
                 {
@@ -41,9 +43,9 @@ const data = {
             },
             skills: {
                 title       : "Linguaggi, tecnologie, strumenti e sistemi operativi",
-                languages   : common.languages,
-                tools       : common.tools,
-                os          : common.os,
+                languages   : common.skills.languages,
+                tools       : common.skills.tools,
+                os          : common.skills.os,
             },
             projects: {
                 title       : "Progetti",
@@ -78,9 +80,9 @@ const data = {
                 description : "Backend developer"
             },
             skills: {
-                languages   : common.languages,
-                tools       : common.tools,
-                os          : common.os,
+                languages   : common.skills.languages,
+                tools       : common.skills.tools,
+                os          : common.skills.os,
             },
             projects: [
                 {
@@ -106,9 +108,9 @@ const data = {
             },
             skills: {
                 title       : "Languages, technologies, tools, and operating systems",
-                languages   : common.languages,
-                tools       : common.tools,
-                os          : common.os,
+                languages   : common.skills.languages,
+                tools       : common.skills.tools,
+                os          : common.skills.os,
             },
             projects: {
                 title       : "Projects",
