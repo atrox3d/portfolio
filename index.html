@@ -106,10 +106,10 @@
 
     <!-- Terminal Mode Content -->
     <div id="terminal-content">
-        <div class="command-line" id="whoami">
+        <div class="command-line" id="whoami-prompt">
             <span class="prompt">visitor@portfolio:~$</span> whoami
         </div>
-        <div class="output">
+        <div class="output" id="whoami-output">
             <p>terminal html name</p>
             <p>Sviluppatore Full Stack</p>
         </div>
@@ -190,7 +190,11 @@
         const data = {
             it: {
                 terminal: {
-                    whoami: ["Roberto Lombardo", "Sviluppatore Backend"],
+                    // whoami: ["Roberto Lombardo", "Sviluppatore Backend"],
+                    whoami: {
+                        name: "Roberto Lombardo",
+                        description: "Sviluppatore backend"
+                    },
                     skills: ["- HTML, CSS, JavaScript", "- React, Node.js", "- Python, Java", "- Git, Docker"],
                     projects: [
                         "1. E-commerce Platform",
@@ -252,7 +256,10 @@
             },
             en: {
                 terminal: {
-                    whoami: ["json terminal eng", "Full Stack Developer"],
+                    whoami: {
+                        name: "Roberto Lombardo",
+                        description: "Backend developer"
+                    },
                     skills: ["- HTML, CSS, JavaScript", "- React, Node.js", "- Python, Java", "- Git, Docker"],
                     projects: [
                         "1. E-commerce Platform",
@@ -361,11 +368,20 @@
             console.log('updateTerminalContent', 'currentLang', currentLang)
             console.log('updateTerminalContent', 'isTerminalMode', isTerminalMode)
             
-            const content = data[currentLang];
+            const content = data[currentLang].terminal;
             
             // Update terminal content
             const terminalContent = document.getElementById('terminal-content');
             // ... (Update terminal content based on language)
+            const whoami = document.getElementById('whoami-output');
+            //const prompt = whoami.querySelector('.prompt')
+            //console.log('updateTerminalContent', 'whoami', 
+            //    whoami.childNodes[2])
+            // whoami.childNodes[2].textContent = 'hello'
+            const [name, description] = whoami.querySelectorAll('p');
+            name.textContent = content.whoami.name;
+            description.textContent = content.whoami.description;
+            
         }
         
         function updateNormalContent() {
