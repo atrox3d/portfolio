@@ -4,6 +4,11 @@ const common = {
         tools       : ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
         os          : ["linux", "windows", "macos"],
     },
+    contacts: {
+        email       : null,
+        github      : 'https://github/atrox3d',
+        linkedin    : 'https://linkedin',
+    }
 }
 
 const data = {
@@ -60,9 +65,9 @@ const data = {
             },
             contacts: {
                 title       : "Contatti",
-                email       : null,
-                github      : 'https://github/atrox3d',
-                linkedin    : 'https://linkedin',
+                email       : common.contacts.email,
+                github      : common.contacts.github,
+                linkedin    : common.contacts.linkedin,
             }
         },
         buttons: {
@@ -124,10 +129,10 @@ const data = {
                 ]
             },
             contacts: {
-                title       : "Contacts",
-                email       : null,
-                github      : 'https://github/atrox3d',
-            linkedin        : 'https://linkedin',
+                title       : "Contatti",
+                email       : common.contacts.email,
+                github      : common.contacts.github,
+                linkedin    : common.contacts.linkedin,
             }
         },
         buttons: {
