@@ -1,0 +1,91 @@
+/* Terminal Style */
+.terminal-mode {
+    background-color: #000;
+    color: rgb(237, 239, 237);
+    font-family: monospace;
+    padding: 20px;
+    line-height: 1.6;
+    margin-left: 50px;
+}
+
+
+/* Normal Style */
+.normal-mode {
+    background-color: #fff;
+    color: #333;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.hidden {
+    display: none;
+}
+
+.controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.terminal-mode button {
+    background: #0f0;
+    color: #000;
+}
+
+/* Terminal Cursor Effect */
+.cursor {
+    animation: blink 1s infinite;
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background: #0f0;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Terminal Content Styling */
+.prompt {
+    color: #0f0;
+    margin-right: 8px;
+}
+
+/* Normal Mode Styling */
+.normal-mode h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+}
+
+.normal-mode section {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+/* Horizontal List Styling */
+.horizontal-list {
+    display: flex;
+    list-style-type: disc;
+    padding: 10;
+    margin: 0;
+}
+
+.horizontal-list li {
+    margin-right: 30px; /* Adjust spacing as needed */
+}
