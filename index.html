@@ -127,23 +127,19 @@
         <div class="output" id='projects-output'>
             <div>
                 <p>1. project name</p>
-                <p>   - project stack</p>
-                <p>   - Repository: github.com/mariorossi/ecommerce</p>
-            </div>
-            <div>
-                <p>1. project name</p>
-                <p>   - project stack</p>
-                <p>   - Repository: github.com/mariorossi/ecommerce</p>
+                <p>   - stack:</p>
+                <p>   - repo :</p>
+                <p>   - live url: </p>
             </div>
         </div>
         <br/>
         <div class="command-line">
-            <span class="prompt">visitor@portfolio:~$</span> cat contatti.txt
+            <span class="prompt" id="contacts-prompt">visitor@portfolio:~$</span> sed -E 's/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/[ANONYMIZED_EMAIL]/g' contatti.txt
         </div>
-        <div class="output">
-            <p>Email: mario.rossi@example.com</p>
-            <p>GitHub: github.com/mariorossi</p>
-            <p>LinkedIn: linkedin.com/in/mariorossi</p>
+        <div class="output" id="contacts-output">
+            <p>mail:    </p>
+            <p>gitHub:   </p>
+            <p>linkedIn: </p>
         </div>
         <br/>
         <div class="command-line">
@@ -153,41 +149,37 @@
 
     <!-- Normal Mode Content -->
     <div id="normal-content" class="hidden">
-        <h1 id="normal-name">normal html name</h1>
+        <h1 id="normal-name">Roberto Lombardo</h1>
         <section>
             <h2>Chi Sono</h2>
-            <p>Sviluppatore Full Stack con passione per tecnologie web moderne e open source.</p>
+            <p>Sviluppatore backend</p>
         </section>
-
+        
         <section>
             <h2>Competenze</h2>
             <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>React, Node.js</li>
-                <li>Python, Java</li>
-                <li>Git, Docker</li>
+                <li>competenze</li>
             </ul>
         </section>
-
+        
         <section>
             <h2>Progetti</h2>
-            <h3>E-commerce Platform</h3>
-            <p>Stack: React, Node.js, MongoDB</p>
-            <p>Repository: github.com/mariorossi/ecommerce</p>
-
-            <h3>Weather App</h3>
-            <p>Stack: Vue.js, Express</p>
-            <p>Repository: github.com/mariorossi/weather</p>
+            <div>
+                <p>1. project name</p>
+                <p>   - stack:</p>
+                <p>   - repo :</p>
+                <p>   - live url: </p>
+            </div>
         </section>
-
+        
         <section>
             <h2>Contatti</h2>
-            <p>Email: mario.rossi@example.com</p>
-            <p>GitHub: github.com/mariorossi</p>
-            <p>LinkedIn: linkedin.com/in/mariorossi</p>
+            <p>Mail:    </p>
+            <p>GitHub:   </p>
+            <p>LinkedIn: </p>
         </section>
     </div>
-
+    
     <script>
         const data = {
             it: {
@@ -198,6 +190,7 @@
                         description: "Sviluppatore backend"
                     },
                     skills: {
+                        filename: 'competenze.txt',
                         languages: ["bash", "cmd", "powershell", "c", "python", "php", "sql"],
                         tools: ["mysql", "git", "docker", "llm", "pycharm", "vscode", "devcontainers", "github", "tdd", "ollama"],
                         os: ["linux", "windows", "macos"],
@@ -209,14 +202,6 @@
                             repo:  'https://github.com/atrox3d/etl_lottery',
                             url:   'https://atrox3dlottery.streamlit.app/',
                         },
-                        /*
-                        {
-                            title: "2. E-commerce Platform",
-                            stack: "   - Stack: React, Node.js, MongoDB",
-                            repo: "   - Repository: github.com/mariorossi/ecommerce",
-                            url: null,
-                        },
-                        */
                     ],
                     contacts: [
                         "Email: mario.rossi@example.com",
@@ -289,14 +274,6 @@
                             repo:  'https://github.com/atrox3d/etl_lottery',
                             url:   'https://atrox3dlottery.streamlit.app/',
                         },
-                        /*
-                        {
-                            title: "2. E-commerce Platform",
-                            stack: "   - Stack: React, Node.js, MongoDB",
-                            repo: "   - Repository: github.com/mariorossi/ecommerce",
-                            url: null,
-                        },
-                        */
                     ],
                     contacts: [
                         "Email: mario.rossi@example.com",
@@ -355,7 +332,7 @@
 
         let currentLang = 'it';
         let isTerminalMode = true;
-        console.log('main', 'content', data)
+        // console.log('main', 'content', data)
         
         function toggleMode() {
             isTerminalMode = !isTerminalMode;
@@ -367,9 +344,9 @@
         }
 
         function toggleLanguage() {
-            console.log('toggleLanguage', 'content', data)
+            // console.log('toggleLanguage', 'content', data)
             currentLang = currentLang === 'it' ? 'en' : 'it';
-            console.log('currentLang', currentLang) // ok
+            // console.log('currentLang', currentLang) // ok
             updateContent();
             updateButtonText();
         }
@@ -397,8 +374,8 @@
         }
         
         function updateTerminalContent() {
-            console.log('updateTerminalContent', 'currentLang', currentLang)
-            console.log('updateTerminalContent', 'isTerminalMode', isTerminalMode)
+            // console.log('updateTerminalContent', 'currentLang', currentLang)
+            // console.log('updateTerminalContent', 'isTerminalMode', isTerminalMode)
             
             const content = data[currentLang].terminal;
             
@@ -435,7 +412,7 @@
             const projects = document.getElementById('projects-output');
             
             projects.innerHTML = '';
-            console.log('contents.projects', content.projects)
+            // console.log('contents.projects', content.projects)
 
             content.projects.forEach(project => {
                 const title = document.createElement('p');
@@ -466,12 +443,12 @@
                     }
                 projects.appendChild(pdiv);
             });
-            console.log('projects', projects)
+            // console.log('projects', projects)
         }
         
         function updateNormalContent() {
-            console.log('updateNormalContent', 'currentLang', currentLang)
-            console.log('updateNormalContent', 'isTerminalMode', isTerminalMode)
+            // console.log('updateNormalContent', 'currentLang', currentLang)
+            // console.log('updateNormalContent', 'isTerminalMode', isTerminalMode)
             
             const content = data[currentLang].normal;
             
