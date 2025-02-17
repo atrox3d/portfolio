@@ -29,8 +29,8 @@
             <p>- skills</p>
         </div>
         <br/>
-        <div class="command-line">
-            <span class="prompt" id="'projects-prompt">visitor@portfolio:~$</span> cat progetti.txt
+        <div class="command-line" id="projects-prompt">
+            <span class="prompt">visitor@portfolio:~$</span> cat progetti.txt
         </div>
         <div class="output" id='projects-output'>
             <div>
@@ -41,8 +41,8 @@
             </div>
         </div>
         <br/>
-        <div class="command-line">
-            <span class="prompt" id="contacts-prompt">visitor@portfolio:~$</span> sed -E 's/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/[ANONYMIZED_EMAIL]/g' contatti.txt
+        <div class="command-line"  id="contacts-prompt">
+            <span class="prompt">visitor@portfolio:~$</span> sed -E 's/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/[ANONYMIZED_EMAIL]/g' contatti.txt
         </div>
         <div class="output" id="contacts-output">
             <p>mail:    </p>

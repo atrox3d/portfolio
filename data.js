@@ -31,16 +31,21 @@ const data = {
                 tools       : common.skills.tools,
                 os          : common.skills.os,
             },
-            projects: [
-                {
-                    title   : '1. ETL lottery',
-                    stack   : common.projects[0].stack,
-                    repo    : common.projects[0].repo,
-                    url     : common.projects[0].url,
-                },
-            ],
+            projects: {
+                title       : "Progetti",
+                filename    : 'progetti.txt',
+                items       : [
+                    {
+                        title: '1. ETL lottery',
+                        stack   : common.projects[0].stack,
+                        repo    : common.projects[0].repo,
+                        url     : common.projects[0].url,
+                        },
+                ],
+            },
             contacts: {
                 title       : "Contatti",
+                filename    : 'contatti.txt',
                 email       : common.contacts.email,
                 github      : common.contacts.github,
                 linkedin    : common.contacts.linkedin,
@@ -93,20 +98,26 @@ const data = {
                 description : "Backend developer"
             },
             skills: {
+                filename    : 'skills.txt',
                 languages   : common.skills.languages,
                 tools       : common.skills.tools,
                 os          : common.skills.os,
             },
-            projects: [
-                {
-                    title   : '1. ETL lottery',
-                    stack   : common.projects[0].stack,
-                    repo    : common.projects[0].repo,
-                    url     : common.projects[0].url,
-                },
-            ],
+            projects: {
+                title       : "Projects",
+                filename    : 'projects.txt',
+                items       : [
+                    {
+                        title: '1. ETL lottery',
+                        stack   : common.projects[0].stack,
+                        repo    : common.projects[0].repo,
+                        url     : common.projects[0].url,
+                    },
+                ]
+            },
             contacts: {
                 title       : "Contatti",
+                filename    : 'contacts.txt',
                 email       : common.contacts.email,
                 github      : common.contacts.github,
                 linkedin    : common.contacts.linkedin,

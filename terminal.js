@@ -16,6 +16,12 @@ function updateTerminalContent() {
     //
     // skills
     //
+    const skillsPrompt = document.getElementById('skills-prompt');
+    skillsPrompt.innerHTML = 
+    '<span class="prompt">visitor@portfolio:~$</span> cat '
+    + content.skills.filename;
+    
+    
     const skills = document.getElementById('skills-output');
 
     skills.innerHTML = '';
@@ -33,11 +39,16 @@ function updateTerminalContent() {
     //
     // projects
     //
+    const projectsPrompt = document.getElementById('projects-prompt');
+    projectsPrompt.innerHTML = 
+    '<span class="prompt">visitor@portfolio:~$</span> cat '
+    + content.projects.filename;
+
     const projects = document.getElementById('projects-output');
 
     projects.innerHTML = '';
     // console.log('contents.projects', content.projects)
-    content.projects.forEach(project => {
+    content.projects.items.forEach(project => {
         const title = document.createElement('p');
         title.textContent = project.title;
 
@@ -66,11 +77,17 @@ function updateTerminalContent() {
         }
         projects.appendChild(pdiv);
     });
-    // Contacts section
-    //normalContacts.querySelector('h2').textContent = 
-    //currentContent.contacts.title;
+    //
+    // contacts
+    //
+    const contactsPrompt = document.getElementById('contacts-prompt');
+    contactsPrompt.innerHTML = 
+    "<span class='prompt'>visitor@portfolio:~$</span> "
+    + "sed -E 's/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/[ANONYMIZED_EMAIL]/g' "
+    + content.contacts.filename;
+
     const contacts = document.getElementById('contacts-output');
-    console.log('contacts', contacts)
+    //console.log('contacts', contacts)
     contacts.innerHTML = '<h2>' + content.contacts.title + '</h2>';
 
     //if (content.contacts.email !== null) {
