@@ -66,5 +66,30 @@ function updateTerminalContent() {
         }
         projects.appendChild(pdiv);
     });
-    // console.log('projects', projects)
+    // Contacts section
+    //normalContacts.querySelector('h2').textContent = 
+    //currentContent.contacts.title;
+    const contacts = document.getElementById('contacts-output');
+    console.log('contacts', contacts)
+    contacts.innerHTML = '<h2>' + content.contacts.title + '</h2>';
+
+    //if (content.contacts.email !== null) {
+    const normalEmail = document.createElement('p');
+    normalEmail.innerHTML =
+    '<b>Mail:</b> ' +
+    content.contacts.email;
+    contacts.appendChild(normalEmail)
+    //}
+
+    const normalGithub = document.createElement('p')
+    const gh = content.contacts.github
+    normalGithub.innerHTML =
+        '<b>Github:</b> <a href="' + gh + '">'+gh+'</a>';
+    contacts.appendChild(normalGithub)
+
+    const normalLinkedin = document.createElement('p')
+    const li = content.contacts.linkedin;
+    normalLinkedin.innerHTML =
+        '<b>Linkedin:</b> <a href="' + li + '">'+li+'</a>';
+    contacts.appendChild(normalLinkedin)
 }

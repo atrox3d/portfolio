@@ -79,10 +79,9 @@ function updateNormalContent() {
     });
 
     // Contacts section
-    //normalContacts.querySelector('h2').textContent = 
-    //currentContent.contacts.title;
     contacts.innerHTML = '<h2>' + content.contacts.title + '</h2>';
-
+    
+    /*
     if (content.contacts.email !== null) {
         const normalEmail = document.createElement('p');
         normalEmail.innerHTML =
@@ -90,7 +89,7 @@ function updateNormalContent() {
         content.contacts.email;
         contacts.appendChild(normalEmail)
     }
-
+    */
     const normalGithub = document.createElement('p')
     const gh = content.contacts.github
     normalGithub.innerHTML =

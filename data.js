@@ -6,15 +6,15 @@ const common = {
     },
     projects: [
         {
-            stack   : 'python, pandas, mysql , sqlite',
+            stack   : 'python, pandas, streamlit, mysql, sqlite',
             repo    : 'https://github.com/atrox3d/etl_lottery',
             url     : 'https://atrox3dlottery.streamlit.app/',
         },
     ],
     contacts: {
-        email       : null,
+        email       : 'ANONYMIZED_EMAIL',
         github      : 'https://github/atrox3d',
-        linkedin    : 'https://linkedin',
+        linkedin    : 'http://www.linkedin.com/in/giuseppe-roberto-lombardo',
     }
 }
 
