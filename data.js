@@ -39,11 +39,12 @@ const data = {
                     url     : common.projects[0].url,
                 },
             ],
-            contacts: [
-                "Email: mario.rossi@example.com",
-                "GitHub: github.com/mariorossi",
-                "LinkedIn: linkedin.com/in/mariorossi"
-            ]
+            contacts: {
+                title       : "Contatti",
+                email       : common.contacts.email,
+                github      : common.contacts.github,
+                linkedin    : common.contacts.linkedin,
+            }
         },
         normal: {
             name: "Roberto Lombardo",
@@ -104,11 +105,12 @@ const data = {
                     url     : common.projects[0].url,
                 },
             ],
-            contacts: [
-                "Email: mario.rossi@example.com",
-                "GitHub: github.com/mariorossi",
-                "LinkedIn: linkedin.com/in/mariorossi"
-            ]
+            contacts: {
+                title       : "Contatti",
+                email       : common.contacts.email,
+                github      : common.contacts.github,
+                linkedin    : common.contacts.linkedin,
+            }
         },
         normal: {
             name            : "Roberto Lombardo",
